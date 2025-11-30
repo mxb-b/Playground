@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Calculator for First Graders</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <h1>🎨 Visual Calculator</h1>
+            <p class="subtitle">Learn numbers with fun visuals!</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Display Area -->
+            <section class="display-section">
+                <div class="calculation-display" id="calculationDisplay">
+                    <span class="display-number" id="displayNumber1">0</span>
+                    <span class="display-operation" id="displayOperation"></span>
+                    <span class="display-number" id="displayNumber2"></span>
+                    <span class="display-equals" id="displayEquals"></span>
+                    <span class="display-result" id="displayResult"></span>
+                </div>
+            </section>
+
+            <!-- Visualizations Container -->
+            <div class="visualizations-container">
+                <!-- Ten Frames -->
+                <section class="visualization-box ten-frames-section">
+                    <h2 class="viz-title">Ten Frames</h2>
+                    <div class="ten-frames-container" id="tenFramesContainer">
+                        <!-- Pixi.js canvas will be inserted here -->
+                    </div>
+                </section>
+
+                <!-- Number Bonds (NEW! Critical for learning) -->
+                <section class="visualization-box number-bonds-section">
+                    <h2 class="viz-title">Number Bonds</h2>
+                    <div class="number-bonds-container" id="numberBondsContainer">
+                        <!-- SVG number bonds will be rendered here -->
+                        <svg id="numberBondsSvg" width="100%" height="200" viewBox="0 0 300 200">
+                            <!-- Whole circle (top) -->
+                            <circle id="bondWhole" cx="150" cy="50" r="35" class="bond-circle whole"/>
+                            <text id="bondWholeText" x="150" y="60" class="bond-text">8</text>
+
+                            <!-- Lines connecting to parts -->
+                            <line id="bondLine1" x1="150" y1="85" x2="100" y2="135" class="bond-line"/>
+                            <line id="bondLine2" x1="150" y1="85" x2="200" y2="135" class="bond-line"/>
+
+                            <!-- Part circles (bottom) -->
+                            <circle id="bondPart1" cx="100" cy="150" r="30" class="bond-circle part1"/>
+                            <text id="bondPart1Text" x="100" y="158" class="bond-text">5</text>
+
+                            <circle id="bondPart2" cx="200" cy="150" r="30" class="bond-circle part2"/>
+                            <text id="bondPart2Text" x="200" y="158" class="bond-text">3</text>
+                        </svg>
+                    </div>
+                </section>
+
+                <!-- Number Line -->
+                <section class="visualization-box number-line-section">
+                    <h2 class="viz-title">Number Line</h2>
+                    <div class="number-line-container" id="numberLineContainer">
+                        <!-- SVG number line will be rendered here -->
+                        <svg id="numberLineSvg" width="100%" height="120" viewBox="0 0 600 120">
+                            <!-- Main line -->
+                            <line x1="50" y1="60" x2="550" y2="60" class="number-line-main" stroke="#333" stroke-width="3"/>
+
+                            <!-- Tick marks and numbers (0-20) -->
+                            <g id="numberLineTicks"></g>
+
+                            <!-- Hopping character -->
+                            <g id="hopCharacter" transform="translate(50, 35)">
+                                <circle cx="0" cy="0" r="12" fill="#FF6B6B"/>
+                                <circle cx="-4" cy="-3" r="2" fill="white"/>
+                                <circle cx="4" cy="-3" r="2" fill="white"/>
+                                <path d="M -6 5 Q 0 8 6 5" stroke="white" fill="none" stroke-width="2"/>
+                            </g>
+                        </svg>
+                    </div>
+                </section>
+
+                <!-- Counting Objects (Draggable!) -->
+                <section class="visualization-box counting-objects-section">
+                    <h2 class="viz-title">Counting Objects</h2>
+                    <div class="counting-objects-container" id="countingObjectsContainer">
+                        <!-- Pixi.js canvas for interactive objects -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- Calculator Keypad -->
+            <section class="calculator-section">
+                <div class="calculator-keypad">
+                    <button class="calc-btn number-btn" data-value="7">7</button>
+                    <button class="calc-btn number-btn" data-value="8">8</button>
+                    <button class="calc-btn number-btn" data-value="9">9</button>
+                    <button class="calc-btn operation-btn" data-operation="+">+</button>
+
+                    <button class="calc-btn number-btn" data-value="4">4</button>
+                    <button class="calc-btn number-btn" data-value="5">5</button>
+                    <button class="calc-btn number-btn" data-value="6">6</button>
+                    <button class="calc-btn operation-btn" data-operation="-">−</button>
+
+                    <button class="calc-btn number-btn" data-value="1">1</button>
+                    <button class="calc-btn number-btn" data-value="2">2</button>
+                    <button class="calc-btn number-btn" data-value="3">3</button>
+                    <button class="calc-btn equals-btn" data-action="equals">=</button>
+
+                    <button class="calc-btn clear-btn" data-action="clear">C</button>
+                    <button class="calc-btn number-btn zero-btn" data-value="0">0</button>
+                    <button class="calc-btn backspace-btn" data-action="backspace">⌫</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Confetti Canvas Overlay -->
+        <div id="confetti-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999;"></div>
+    </div>
+
+    <!-- Libraries -->
+    <!-- Pixi.js for hardware-accelerated 2D graphics -->
+    <script src="https://cdn.jsdelivr.net/npm/pixi.js@8.0.4/dist/pixi.min.js"></script>
+
+    <!-- GSAP for smooth animations -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <!-- tsParticles for celebration effects -->
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/engine@3.3.0/tsparticles.engine.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/basic@3.3.0/tsparticles.basic.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.3.0/tsparticles.confetti.min.js"></script>
+
+    <!-- Application Scripts -->
+    <script src="calculator.js"></script>
+    <script src="visualizer.js"></script>
+    <script src="animator.js"></script>
+    <script src="particles.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
