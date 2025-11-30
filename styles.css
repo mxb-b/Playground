@@ -56,18 +56,28 @@ body {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #333;
     min-height: 100vh;
+    height: 100vh;
     padding: var(--spacing-md);
     overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* === App Container === */
 .app-container {
+    width: 100%;
     max-width: 1200px;
+    max-height: 95vh;
     margin: 0 auto;
     background: var(--background);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-lg);
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 /* === Header === */
@@ -95,6 +105,8 @@ body {
 /* === Main Content === */
 .main-content {
     padding: var(--spacing-lg);
+    flex: 1;
+    overflow-y: auto;
 }
 
 /* === Display Section === */
@@ -170,13 +182,21 @@ body {
 
 /* === Ten Frames Styling === */
 .ten-frames-container {
-    min-height: 200px;
+    min-height: 180px;
+    max-height: 220px;
     background: #f8f9fa;
     border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    overflow: hidden;
+}
+
+.ten-frames-container canvas {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
 /* === Number Bonds Styling === */
@@ -262,13 +282,21 @@ body {
 
 /* === Counting Objects Styling === */
 .counting-objects-container {
-    min-height: 200px;
+    min-height: 180px;
+    max-height: 220px;
     background: #f8f9fa;
     border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    overflow: hidden;
+}
+
+.counting-objects-container canvas {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
 /* === Calculator Section === */
@@ -403,7 +431,25 @@ body {
 }
 
 /* === Responsive Design === */
+@media (max-width: 1024px) {
+    .visualizations-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
+    body {
+        padding: var(--spacing-sm);
+    }
+
+    .app-container {
+        max-height: 98vh;
+    }
+
+    .app-header {
+        padding: var(--spacing-md);
+    }
+
     .app-header h1 {
         font-size: 2rem;
     }
@@ -412,13 +458,33 @@ body {
         font-size: 1rem;
     }
 
+    .main-content {
+        padding: var(--spacing-md);
+    }
+
     .calculation-display {
         font-size: 2.5rem;
         padding: var(--spacing-md);
+        min-height: 80px;
     }
 
     .visualizations-container {
         grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .ten-frames-container,
+    .counting-objects-container {
+        min-height: 150px;
+        max-height: 180px;
+    }
+
+    .number-bonds-container {
+        min-height: 150px;
+    }
+
+    .number-line-container {
+        min-height: 100px;
     }
 
     .calc-btn {
@@ -437,17 +503,66 @@ body {
         padding: var(--spacing-xs);
     }
 
+    .app-container {
+        border-radius: var(--radius-md);
+    }
+
+    .app-header {
+        padding: var(--spacing-sm);
+    }
+
     .app-header h1 {
         font-size: 1.5rem;
     }
 
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .main-content {
+        padding: var(--spacing-sm);
+    }
+
     .calculation-display {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        padding: var(--spacing-sm);
+        min-height: 70px;
+    }
+
+    .display-operation {
+        font-size: 2.5rem !important;
+    }
+
+    .display-result {
+        font-size: 2.5rem !important;
+    }
+
+    .visualizations-container {
+        gap: var(--spacing-xs);
+    }
+
+    .ten-frames-container,
+    .counting-objects-container {
+        min-height: 120px;
+        max-height: 150px;
+    }
+
+    .number-bonds-container {
+        min-height: 120px;
+    }
+
+    .number-line-container {
+        min-height: 80px;
     }
 
     .calc-btn {
         font-size: 1.5rem;
         padding: var(--spacing-sm);
+        min-height: 50px;
+    }
+
+    .calculator-keypad {
+        max-width: 100%;
     }
 }
 

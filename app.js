@@ -48,37 +48,37 @@ class VisualCalculatorApp {
         // Number buttons
         const numberButtons = document.querySelectorAll('.number-btn');
         numberButtons.forEach(button => {
-            button.addEventListener('click', () => {
+            button.addEventListener('click', (e) => {
                 const value = button.getAttribute('data-value');
-                this.handleNumberInput(value);
+                this.handleNumberInput(value, e);
             });
         });
 
         // Operation buttons
         const operationButtons = document.querySelectorAll('.operation-btn');
         operationButtons.forEach(button => {
-            button.addEventListener('click', () => {
+            button.addEventListener('click', (e) => {
                 const operation = button.getAttribute('data-operation');
-                this.handleOperation(operation);
+                this.handleOperation(operation, e);
             });
         });
 
         // Equals button
         const equalsButton = document.querySelector('.equals-btn');
-        equalsButton.addEventListener('click', () => {
-            this.handleEquals();
+        equalsButton.addEventListener('click', (e) => {
+            this.handleEquals(e);
         });
 
         // Clear button
         const clearButton = document.querySelector('.clear-btn');
-        clearButton.addEventListener('click', () => {
-            this.handleClear();
+        clearButton.addEventListener('click', (e) => {
+            this.handleClear(e);
         });
 
         // Backspace button
         const backspaceButton = document.querySelector('.backspace-btn');
-        backspaceButton.addEventListener('click', () => {
-            this.handleBackspace();
+        backspaceButton.addEventListener('click', (e) => {
+            this.handleBackspace(e);
         });
 
         // Keyboard support
@@ -98,11 +98,13 @@ class VisualCalculatorApp {
     /**
      * Handle number input
      */
-    handleNumberInput(value) {
+    handleNumberInput(value, event) {
         const number = this.calculator.inputNumber(value);
 
         // Animate button press
-        this.animateButtonPress(event.target);
+        if (event && event.target) {
+            this.animateButtonPress(event.target);
+        }
 
         // Update display
         this.animateNumberEntry(number);
@@ -114,7 +116,7 @@ class VisualCalculatorApp {
     /**
      * Handle operation input (+, -)
      */
-    handleOperation(operation) {
+    handleOperation(operation, event) {
         const data = this.calculator.inputOperation(operation);
 
         // Animate button press
@@ -137,7 +139,7 @@ class VisualCalculatorApp {
     /**
      * Handle equals button
      */
-    handleEquals() {
+    handleEquals(event) {
         const result = this.calculator.calculate();
 
         if (result === null) {
@@ -158,7 +160,7 @@ class VisualCalculatorApp {
     /**
      * Handle clear button
      */
-    handleClear() {
+    handleClear(event) {
         this.calculator.clear();
 
         // Animate button press
@@ -176,7 +178,7 @@ class VisualCalculatorApp {
     /**
      * Handle backspace
      */
-    handleBackspace() {
+    handleBackspace(event) {
         const number = this.calculator.backspace();
 
         // Animate button press
