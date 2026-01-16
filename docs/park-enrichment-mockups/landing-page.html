@@ -3,11 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Park Enrichment - Landing Page Mockup</title>
+  <title>The Park School Enrichment - Landing Page Mockup</title>
   <link rel="stylesheet" href="styles/common.css">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       background: var(--pe-off-white);
+      overflow-x: hidden;
     }
 
     /* Navigation */
@@ -15,7 +22,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 60px;
+      padding: 16px 5%;
       background: var(--pe-white);
       box-shadow: 0 2px 20px rgba(61, 122, 109, 0.08);
       position: fixed;
@@ -26,22 +33,23 @@
     }
 
     .nav-logo img {
-      height: 45px;
+      height: 40px;
       width: auto;
     }
 
     .nav-links {
       display: flex;
-      gap: 40px;
+      gap: 32px;
       list-style: none;
     }
 
     .nav-links a {
       text-decoration: none;
       color: var(--pe-dark-teal);
-      font-size: 14px;
+      font-family: var(--font-primary);
+      font-size: 13px;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
       transition: color 0.3s ease;
     }
 
@@ -52,12 +60,13 @@
     .nav-cta {
       background: var(--pe-medium-green);
       color: white;
-      padding: 12px 28px;
+      padding: 10px 24px;
       border-radius: 6px;
       text-decoration: none;
-      font-size: 13px;
+      font-family: var(--font-primary);
+      font-size: 12px;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
       transition: background 0.3s ease;
     }
 
@@ -65,12 +74,26 @@
       background: var(--pe-dark-teal);
     }
 
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .mobile-menu-btn svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--pe-dark-teal);
+    }
+
     /* Hero Section */
     .hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: 120px 60px 80px;
+      padding: 120px 5% 80px;
       background: linear-gradient(135deg, var(--pe-off-white) 0%, #e5efe8 100%);
       position: relative;
       overflow: hidden;
@@ -87,19 +110,8 @@
       border-radius: 50%;
     }
 
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -30%;
-      left: -15%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(91, 184, 154, 0.06) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-
     .hero-content {
-      max-width: 600px;
+      max-width: 550px;
       position: relative;
       z-index: 1;
     }
@@ -110,52 +122,192 @@
       color: var(--pe-medium-green);
       padding: 8px 16px;
       border-radius: 20px;
-      font-size: 12px;
+      font-family: var(--font-primary);
+      font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 2px;
-      margin-bottom: 30px;
+      margin-bottom: 24px;
     }
 
     .hero h1 {
       font-family: var(--font-display);
-      font-size: 56px;
-      font-weight: 600;
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 400;
       color: var(--pe-dark-teal);
       line-height: 1.2;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     .hero p {
-      font-size: 18px;
+      font-family: var(--font-primary);
+      font-size: 17px;
       color: var(--pe-dark-gray);
-      line-height: 1.8;
-      margin-bottom: 40px;
+      line-height: 1.7;
+      margin-bottom: 32px;
       opacity: 0.85;
     }
 
     .hero-buttons {
       display: flex;
-      gap: 20px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-family: var(--font-primary);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--pe-medium-green);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--pe-dark-teal);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--pe-medium-green);
+      border: 2px solid var(--pe-medium-green);
+    }
+
+    .btn-outline:hover {
+      background: var(--pe-medium-green);
+      color: white;
     }
 
     .hero-visual {
       position: absolute;
-      right: 60px;
+      right: 5%;
       top: 50%;
       transform: translateY(-50%);
       z-index: 1;
     }
 
     .hero-visual img {
-      width: 450px;
+      width: clamp(280px, 35vw, 420px);
       height: auto;
-      filter: drop-shadow(0 20px 40px rgba(61, 122, 109, 0.2));
+      filter: drop-shadow(0 20px 40px rgba(61, 122, 109, 0.15));
     }
 
-    /* Features Section */
-    .features {
-      padding: 100px 60px;
+    /* Stats Section */
+    .stats-section {
+      background: var(--pe-dark-teal);
+      padding: 60px 5%;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .stat-item h3 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4vw, 48px);
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .stat-item p {
+      font-family: var(--font-primary);
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 100px 5%;
       background: var(--pe-white);
+    }
+
+    .about-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-image-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, var(--pe-light-green) 0%, var(--pe-medium-green) 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-image-placeholder img {
+      width: 60%;
+      height: auto;
+      opacity: 0.3;
+    }
+
+    .about-content h2 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3vw, 36px);
+      color: var(--pe-dark-teal);
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    .about-content p {
+      font-family: var(--font-primary);
+      font-size: 16px;
+      color: var(--pe-dark-gray);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      opacity: 0.85;
+    }
+
+    .about-features {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .about-feature {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-primary);
+      font-size: 14px;
+      color: var(--pe-dark-teal);
+    }
+
+    .about-feature svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--pe-medium-green);
+      flex-shrink: 0;
+    }
+
+    /* Programs Section */
+    .programs-section {
+      padding: 100px 5%;
+      background: var(--pe-off-white);
     }
 
     .section-header {
@@ -166,49 +318,51 @@
 
     .section-header h2 {
       font-family: var(--font-display);
-      font-size: 36px;
+      font-size: clamp(28px, 3vw, 36px);
       color: var(--pe-dark-teal);
       margin-bottom: 16px;
     }
 
     .section-header p {
+      font-family: var(--font-primary);
+      font-size: 16px;
       color: var(--pe-dark-gray);
       opacity: 0.7;
     }
 
-    .features-grid {
+    .programs-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
+      gap: 32px;
       max-width: 1100px;
       margin: 0 auto;
     }
 
-    .feature-card {
-      background: var(--pe-off-white);
-      padding: 40px 30px;
+    .program-card {
+      background: var(--pe-white);
+      padding: 40px 32px;
       border-radius: 12px;
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(61, 122, 109, 0.12);
+    .program-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(61, 122, 109, 0.15);
     }
 
-    .feature-icon {
-      width: 60px;
-      height: 60px;
+    .program-icon {
+      width: 64px;
+      height: 64px;
       background: linear-gradient(135deg, var(--pe-medium-green), var(--pe-light-green));
-      border-radius: 12px;
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 auto 24px;
     }
 
-    .feature-icon svg {
+    .program-icon svg {
       width: 28px;
       height: 28px;
       stroke: white;
@@ -216,22 +370,105 @@
       stroke-width: 2;
     }
 
-    .feature-card h3 {
-      font-size: 18px;
+    .program-card h3 {
+      font-family: var(--font-display);
+      font-size: 20px;
       color: var(--pe-dark-teal);
       margin-bottom: 12px;
     }
 
-    .feature-card p {
+    .program-card p {
+      font-family: var(--font-primary);
       font-size: 14px;
       color: var(--pe-dark-gray);
       opacity: 0.7;
       line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .program-link {
+      font-family: var(--font-primary);
+      font-size: 13px;
+      color: var(--pe-medium-green);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: gap 0.3s ease;
+    }
+
+    .program-link:hover {
+      gap: 12px;
+    }
+
+    .program-link svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--pe-medium-green);
+    }
+
+    /* Testimonials Section */
+    .testimonials-section {
+      padding: 100px 5%;
+      background: var(--pe-white);
+    }
+
+    .testimonial-card {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .testimonial-quote {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 2.5vw, 28px);
+      color: var(--pe-dark-teal);
+      line-height: 1.6;
+      margin-bottom: 32px;
+      font-style: italic;
+    }
+
+    .testimonial-quote::before {
+      content: '"';
+      font-size: 60px;
+      color: var(--pe-light-green);
+      display: block;
+      margin-bottom: -20px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .author-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--pe-medium-green), var(--pe-dark-teal));
+    }
+
+    .author-info h4 {
+      font-family: var(--font-primary);
+      font-size: 15px;
+      color: var(--pe-dark-teal);
+      margin-bottom: 4px;
+    }
+
+    .author-info p {
+      font-family: var(--font-primary);
+      font-size: 13px;
+      color: var(--pe-dark-gray);
+      opacity: 0.7;
     }
 
     /* CTA Section */
     .cta-section {
-      padding: 100px 60px;
+      padding: 100px 5%;
       background: linear-gradient(135deg, var(--pe-dark-teal) 0%, var(--pe-accent-teal) 100%);
       text-align: center;
       position: relative;
@@ -252,21 +489,22 @@
 
     .cta-section h2 {
       font-family: var(--font-display);
-      font-size: 42px;
-      color: var(--pe-white);
-      margin-bottom: 20px;
+      font-size: clamp(28px, 3.5vw, 42px);
+      color: white;
+      margin-bottom: 16px;
       position: relative;
     }
 
     .cta-section p {
+      font-family: var(--font-primary);
       color: rgba(255, 255, 255, 0.8);
-      font-size: 18px;
-      margin-bottom: 40px;
+      font-size: 17px;
+      margin-bottom: 32px;
       position: relative;
     }
 
     .cta-section .btn {
-      background: var(--pe-white);
+      background: white;
       color: var(--pe-dark-teal);
       position: relative;
     }
@@ -278,38 +516,78 @@
     /* Footer */
     .footer {
       background: var(--pe-dark-gray);
-      padding: 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      padding: 60px 5% 30px;
     }
 
-    .footer-logo img {
-      height: 40px;
-      opacity: 0.8;
-      filter: brightness(0) invert(1);
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+      max-width: 1200px;
+      margin: 0 auto 40px;
     }
 
-    .footer-links {
-      display: flex;
-      gap: 30px;
+    .footer-brand img {
+      height: 50px;
+      margin-bottom: 20px;
+    }
+
+    .footer-brand p {
+      font-family: var(--font-primary);
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+
+    .footer-column h4 {
+      font-family: var(--font-primary);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 20px;
+    }
+
+    .footer-column ul {
       list-style: none;
     }
 
-    .footer-links a {
-      color: rgba(255, 255, 255, 0.6);
+    .footer-column li {
+      margin-bottom: 12px;
+    }
+
+    .footer-column a {
+      font-family: var(--font-primary);
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
       text-decoration: none;
-      font-size: 13px;
       transition: color 0.3s ease;
     }
 
-    .footer-links a:hover {
+    .footer-column a:hover {
       color: var(--pe-light-green);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-bottom p {
+      font-family: var(--font-primary);
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.4);
     }
 
     .footer-social {
       display: flex;
-      gap: 15px;
+      gap: 12px;
     }
 
     .footer-social a {
@@ -333,32 +611,170 @@
       stroke: white;
       fill: none;
     }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .hero-visual {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        margin-top: 40px;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 100px;
+      }
+
+      .hero-content {
+        max-width: 100%;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+      }
+
+      .about-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .programs-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .hero {
+        padding: 100px 5% 60px;
+        min-height: auto;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stat-item h3 {
+        font-size: 28px;
+      }
+
+      .about-features {
+        grid-template-columns: 1fr;
+      }
+
+      .programs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .program-card {
+        padding: 32px 24px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+      }
+
+      .footer-brand p {
+        max-width: 100%;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .stats-section {
+        padding: 40px 5%;
+      }
+
+      .stat-item h3 {
+        font-size: 24px;
+      }
+
+      .programs-section, .about-section, .testimonials-section {
+        padding: 60px 5%;
+      }
+
+      .section-header {
+        margin-bottom: 40px;
+      }
+    }
   </style>
 </head>
 <body>
   <!-- Navigation -->
   <nav class="nav">
     <div class="nav-logo">
-      <img src="assets/2026.Enrichment.logo_multigreen.png" alt="Park Enrichment">
+      <img src="assets/2026.Enrichment.logo_multigreen.png" alt="The Park School Enrichment">
     </div>
     <ul class="nav-links">
       <li><a href="#">Programs</a></li>
       <li><a href="#">About</a></li>
-      <li><a href="#">Community</a></li>
+      <li><a href="#">Events</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
-    <a href="#" class="nav-cta">Get Involved</a>
+    <a href="#" class="nav-cta">Enroll Now</a>
+    <button class="mobile-menu-btn" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
   </nav>
 
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <span class="hero-badge">Community Programs</span>
-      <h1>Enriching Lives Through Nature</h1>
-      <p>Join our community programs that connect people with nature, foster environmental stewardship, and create lasting positive impact in our local parks.</p>
+      <span class="hero-badge">Now Enrolling for Fall 2026</span>
+      <h1>Where Learning Meets Adventure</h1>
+      <p>The Park School Enrichment offers exceptional before and after-school programs that inspire curiosity, creativity, and confidence in every child.</p>
       <div class="hero-buttons">
         <a href="#" class="btn btn-primary">Explore Programs</a>
-        <a href="#" class="btn btn-outline">Learn More</a>
+        <a href="#" class="btn btn-outline">Schedule a Tour</a>
       </div>
     </div>
     <div class="hero-visual">
@@ -366,59 +782,171 @@
     </div>
   </section>
 
-  <!-- Features Section -->
-  <section class="features">
-    <div class="section-header">
-      <h2>Our Programs</h2>
-      <p>Discover meaningful ways to connect with nature and community</p>
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <h3>500+</h3>
+        <p>Students Enrolled</p>
+      </div>
+      <div class="stat-item">
+        <h3>25+</h3>
+        <p>Enrichment Programs</p>
+      </div>
+      <div class="stat-item">
+        <h3>15</h3>
+        <p>Years of Excellence</p>
+      </div>
+      <div class="stat-item">
+        <h3>98%</h3>
+        <p>Parent Satisfaction</p>
+      </div>
     </div>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="about-container">
+      <div class="about-image">
+        <div class="about-image-placeholder">
+          <img src="assets/2026.Enrichment.logo_multigreen_SQUARE.png" alt="Students learning">
+        </div>
+      </div>
+      <div class="about-content">
+        <h2>Nurturing Young Minds Since 2011</h2>
+        <p>At The Park School Enrichment, we believe every child deserves an environment where they can explore, grow, and thrive. Our programs blend academic support with creative expression and physical activity.</p>
+        <p>Our dedicated educators create safe, engaging spaces where children develop essential life skills while having fun with friends.</p>
+        <div class="about-features">
+          <div class="about-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Licensed & Certified Staff</span>
+          </div>
+          <div class="about-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Small Group Sizes</span>
+          </div>
+          <div class="about-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Homework Support</span>
+          </div>
+          <div class="about-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Healthy Snacks Included</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs Section -->
+  <section class="programs-section">
+    <div class="section-header">
+      <h2>Our Enrichment Programs</h2>
+      <p>Discover activities that spark curiosity and foster growth</p>
+    </div>
+    <div class="programs-grid">
+      <div class="program-card">
+        <div class="program-icon">
           <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
         </div>
-        <h3>Youth Education</h3>
-        <p>Hands-on environmental education programs designed to inspire the next generation of nature stewards.</p>
+        <h3>STEM Explorers</h3>
+        <p>Hands-on science experiments, coding basics, and engineering challenges that make learning exciting.</p>
+        <a href="#" class="program-link">
+          Learn More
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">
+      <div class="program-card">
+        <div class="program-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <h3>Creative Arts</h3>
+        <p>Express creativity through painting, drawing, sculpture, and mixed media in our well-equipped art studio.</p>
+        <a href="#" class="program-link">
+          Learn More
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
+      <div class="program-card">
+        <div class="program-icon">
           <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
-        <h3>Community Events</h3>
-        <p>Regular gatherings that bring neighbors together for park cleanups, nature walks, and celebrations.</p>
+        <h3>Sports & Fitness</h3>
+        <p>Active play, team sports, and movement activities that build coordination, teamwork, and healthy habits.</p>
+        <a href="#" class="program-link">
+          Learn More
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <div class="section-header">
+      <h2>What Parents Are Saying</h2>
+    </div>
+    <div class="testimonial-card">
+      <p class="testimonial-quote">The Park School Enrichment has been a blessing for our family. My daughter looks forward to going every day, and I've seen tremendous growth in her confidence and social skills.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar"></div>
+        <div class="author-info">
+          <h4>Jennifer Martinez</h4>
+          <p>Parent of 2nd Grader</p>
         </div>
-        <h3>Conservation</h3>
-        <p>Active preservation initiatives protecting local ecosystems and wildlife habitats for future generations.</p>
       </div>
     </div>
   </section>
 
   <!-- CTA Section -->
   <section class="cta-section">
-    <h2>Ready to Make a Difference?</h2>
-    <p>Join thousands of community members enriching our parks every day.</p>
-    <a href="#" class="btn">Become a Volunteer</a>
+    <h2>Ready to Join Our Community?</h2>
+    <p>Spaces fill quickly. Reserve your child's spot today.</p>
+    <a href="#" class="btn">Start Enrollment</a>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer-logo">
-      <img src="assets/2026.Enrichment.logo_multigreen.png" alt="Park Enrichment">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/2026.Enrichment.logo_multigreen.png" alt="The Park School Enrichment">
+        <p>Providing exceptional enrichment programs for children in a safe, nurturing environment since 2011.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="#">Before School</a></li>
+          <li><a href="#">After School</a></li>
+          <li><a href="#">Summer Camp</a></li>
+          <li><a href="#">Holiday Care</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Our Team</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">News</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#">Get in Touch</a></li>
+          <li><a href="#">Schedule Tour</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Support</a></li>
+        </ul>
+      </div>
     </div>
-    <ul class="footer-links">
-      <li><a href="#">Privacy Policy</a></li>
-      <li><a href="#">Terms of Service</a></li>
-      <li><a href="#">Donate</a></li>
-      <li><a href="#">Careers</a></li>
-    </ul>
-    <div class="footer-social">
-      <a href="#"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-      <a href="#"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
-      <a href="#"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+    <div class="footer-bottom">
+      <p>&copy; 2026 The Park School Enrichment. All rights reserved.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+      </div>
     </div>
   </footer>
 </body>
