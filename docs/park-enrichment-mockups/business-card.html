@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Park Enrichment - Business Card Mockup</title>
   <link rel="stylesheet" href="styles/common.css">
-  <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
   <style>
     .mockup-container {
       background: linear-gradient(145deg, #2d3a36 0%, #1a2421 100%);
@@ -77,8 +76,9 @@
     }
 
     .card-front .person-info h3 {
-      font-size: 14px;
-      font-weight: 600;
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 400;
       color: var(--pe-dark-teal);
       margin-bottom: 2px;
     }
@@ -142,6 +142,7 @@
     }
 
     .card-back .tagline {
+      font-family: var(--font-primary);
       font-size: 11px;
       color: rgba(255, 255, 255, 0.8);
       text-transform: uppercase;

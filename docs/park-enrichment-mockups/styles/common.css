@@ -1,5 +1,9 @@
 /* Park Enrichment Brand Styles */
 
+/* Font Imports - Whitney (sans-serif) and Sabon (serif) */
+@import url('https://fonts.cdnfonts.com/css/whitney-2');
+@import url('https://fonts.cdnfonts.com/css/sabon');
+
 :root {
   /* Primary Brand Colors */
   --pe-dark-teal: #3d7a6d;
@@ -15,9 +19,9 @@
   --pe-dark-gray: #2d3a36;
   --pe-text-dark: #1a2421;
 
-  /* Typography */
-  --font-primary: 'Didact Gothic', 'Century Gothic', 'Segoe UI', Arial, sans-serif;
-  --font-display: 'Playfair Display', Georgia, serif;
+  /* Typography - Whitney for body, Sabon for display */
+  --font-primary: 'Whitney', 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Sabon', Georgia, serif;
 }
 
 * {
