@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Park Enrichment - Social Media Profile Mockup</title>
+  <link rel="stylesheet" href="styles/common.css">
+  <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
+  <style>
+    .mockup-container {
+      background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+      min-height: 100vh;
+      padding: 40px;
+    }
+
+    .mockup-title {
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 40px;
+    }
+
+    .profiles-wrapper {
+      display: flex;
+      gap: 60px;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    .profile-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    /* Instagram-style Profile */
+    .instagram-profile {
+      width: 375px;
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+    }
+
+    .insta-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      border-bottom: 1px solid #efefef;
+    }
+
+    .insta-header svg {
+      width: 20px;
+      height: 20px;
+      stroke: #262626;
+      fill: none;
+    }
+
+    .insta-username {
+      font-weight: 600;
+      font-size: 14px;
+      color: #262626;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .verified-badge {
+      width: 14px;
+      height: 14px;
+      background: #3897f0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .verified-badge svg {
+      width: 8px;
+      height: 8px;
+      stroke: white;
+    }
+
+    .insta-profile-section {
+      padding: 20px 16px;
+    }
+
+    .profile-top {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      margin-bottom: 16px;
+    }
+
+    .profile-avatar {
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      padding: 3px;
+      flex-shrink: 0;
+    }
+
+    .profile-avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: white;
+      padding: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-avatar-inner svg {
+      width: 50px;
+      height: 50px;
+    }
+
+    .profile-stats {
+      display: flex;
+      gap: 20px;
+      flex: 1;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 17px;
+      font-weight: 600;
+      color: #262626;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: #262626;
+    }
+
+    .profile-bio {
+      margin-bottom: 16px;
+    }
+
+    .profile-name {
+      font-weight: 600;
+      font-size: 14px;
+      color: #262626;
+      margin-bottom: 4px;
+    }
+
+    .profile-category {
+      font-size: 13px;
+      color: #8e8e8e;
+      margin-bottom: 8px;
+    }
+
+    .profile-description {
+      font-size: 14px;
+      color: #262626;
+      line-height: 1.4;
+    }
+
+    .profile-link {
+      font-size: 14px;
+      color: #00376b;
+      font-weight: 500;
+    }
+
+    .profile-actions {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .action-btn {
+      flex: 1;
+      padding: 8px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+      border: none;
+    }
+
+    .action-btn.primary {
+      background: #0095f6;
+      color: white;
+    }
+
+    .action-btn.secondary {
+      background: #efefef;
+      color: #262626;
+    }
+
+    .action-btn.icon {
+      flex: 0;
+      width: 32px;
+      padding: 8px;
+    }
+
+    .action-btn.icon svg {
+      width: 14px;
+      height: 14px;
+      stroke: #262626;
+      fill: none;
+    }
+
+    .story-highlights {
+      display: flex;
+      gap: 15px;
+      padding-bottom: 10px;
+    }
+
+    .highlight {
+      text-align: center;
+    }
+
+    .highlight-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 1px solid #dbdbdb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 6px;
+      background: #fafafa;
+    }
+
+    .highlight-circle svg {
+      width: 24px;
+      height: 24px;
+      stroke: #262626;
+      fill: none;
+    }
+
+    .highlight-label {
+      font-size: 12px;
+      color: #262626;
+      max-width: 64px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Grid tabs */
+    .grid-tabs {
+      display: flex;
+      border-top: 1px solid #efefef;
+    }
+
+    .grid-tab {
+      flex: 1;
+      padding: 12px;
+      display: flex;
+      justify-content: center;
+      border-top: 1px solid transparent;
+      margin-top: -1px;
+    }
+
+    .grid-tab.active {
+      border-top-color: #262626;
+    }
+
+    .grid-tab svg {
+      width: 24px;
+      height: 24px;
+      stroke: #8e8e8e;
+      fill: none;
+    }
+
+    .grid-tab.active svg {
+      stroke: #262626;
+    }
+
+    /* Post grid */
+    .post-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .post-item {
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, var(--pe-light-green) 0%, var(--pe-medium-green) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .post-item:nth-child(2) {
+      background: linear-gradient(135deg, var(--pe-accent-teal) 0%, var(--pe-dark-teal) 100%);
+    }
+
+    .post-item:nth-child(3) {
+      background: linear-gradient(45deg, #e8ede9 0%, #c5d8c9 100%);
+    }
+
+    .post-item:nth-child(4) {
+      background: linear-gradient(135deg, var(--pe-dark-teal) 0%, #2d5a50 100%);
+    }
+
+    .post-item:nth-child(5) {
+      background: linear-gradient(135deg, var(--pe-medium-green) 0%, var(--pe-light-green) 100%);
+    }
+
+    .post-item:nth-child(6) {
+      background: linear-gradient(135deg, #3d7a6d 0%, #5bb89a 100%);
+    }
+
+    .post-item svg {
+      width: 40px;
+      height: 40px;
+      opacity: 0.8;
+    }
+
+    /* Twitter/X Style Profile */
+    .twitter-profile {
+      width: 375px;
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+    }
+
+    .twitter-banner {
+      height: 125px;
+      background: linear-gradient(135deg, var(--pe-dark-teal) 0%, var(--pe-medium-green) 100%);
+      position: relative;
+    }
+
+    .twitter-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: white;
+      border: 4px solid white;
+      position: absolute;
+      bottom: -40px;
+      left: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .twitter-avatar svg {
+      width: 48px;
+      height: 48px;
+    }
+
+    .twitter-content {
+      padding: 16px;
+      padding-top: 50px;
+    }
+
+    .twitter-actions-row {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 12px;
+      margin-top: -40px;
+    }
+
+    .twitter-follow-btn {
+      background: #0f1419;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+    }
+
+    .twitter-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0f1419;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .twitter-handle {
+      font-size: 15px;
+      color: #536471;
+      margin-bottom: 12px;
+    }
+
+    .twitter-bio {
+      font-size: 15px;
+      color: #0f1419;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    .twitter-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      color: #536471;
+    }
+
+    .twitter-meta span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .twitter-meta svg {
+      width: 18px;
+      height: 18px;
+      stroke: #536471;
+      fill: none;
+    }
+
+    .twitter-stats {
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+    }
+
+    .twitter-stats strong {
+      color: #0f1419;
+    }
+
+    .twitter-stats span {
+      color: #536471;
+    }
+
+    .twitter-tabs {
+      display: flex;
+      border-top: 1px solid #eff3f4;
+      margin-top: 16px;
+    }
+
+    .twitter-tab {
+      flex: 1;
+      padding: 16px 4px;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 500;
+      color: #536471;
+      border-bottom: 2px solid transparent;
+    }
+
+    .twitter-tab.active {
+      color: #0f1419;
+      border-bottom-color: #1d9bf0;
+    }
+  </style>
+</head>
+<body>
+  <div class="mockup-container">
+    <p class="mockup-title">Social Media Profile Mockups</p>
+
+    <div class="profiles-wrapper">
+      <!-- Instagram Profile -->
+      <div>
+        <p class="profile-label">Instagram</p>
+        <div class="instagram-profile">
+          <div class="insta-header">
+            <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            <div class="insta-username">
+              parkenrichment
+              <div class="verified-badge">
+                <svg viewBox="0 0 24 24" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+            </div>
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+          </div>
+
+          <div class="insta-profile-section">
+            <div class="profile-top">
+              <div class="profile-avatar">
+                <div class="profile-avatar-inner">
+                  <svg viewBox="0 0 80 80">
+                    <rect x="0" y="0" width="80" height="80" rx="10" ry="10" fill="#4a8f7f"/>
+                    <g transform="translate(15, 25)">
+                      <path d="M5 35 Q8 20 25 15 Q35 12 48 18 Q52 8 55 5" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M25 15 Q30 28 25 40" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <div class="profile-stats">
+                <div class="stat">
+                  <div class="stat-number">847</div>
+                  <div class="stat-label">posts</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-number">12.4K</div>
+                  <div class="stat-label">followers</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-number">523</div>
+                  <div class="stat-label">following</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="profile-bio">
+              <div class="profile-name">Park Enrichment</div>
+              <div class="profile-category">Nonprofit Organization</div>
+              <div class="profile-description">
+                Grow | Learn | Thrive<br>
+                Connecting communities with nature through education and conservation programs.
+              </div>
+              <a href="#" class="profile-link">parkenrichment.org</a>
+            </div>
+
+            <div class="profile-actions">
+              <button class="action-btn primary">Follow</button>
+              <button class="action-btn secondary">Message</button>
+              <button class="action-btn secondary icon">
+                <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+              </button>
+            </div>
+
+            <div class="story-highlights">
+              <div class="highlight">
+                <div class="highlight-circle">
+                  <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5"/></svg>
+                </div>
+                <div class="highlight-label">Programs</div>
+              </div>
+              <div class="highlight">
+                <div class="highlight-circle">
+                  <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="highlight-label">Team</div>
+              </div>
+              <div class="highlight">
+                <div class="highlight-circle">
+                  <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <div class="highlight-label">Events</div>
+              </div>
+              <div class="highlight">
+                <div class="highlight-circle">
+                  <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </div>
+                <div class="highlight-label">Impact</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-tabs">
+            <div class="grid-tab active">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            </div>
+            <div class="grid-tab">
+              <svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div class="grid-tab">
+              <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>
+            </div>
+          </div>
+
+          <div class="post-grid">
+            <div class="post-item">
+              <svg viewBox="0 0 80 80">
+                <rect x="0" y="0" width="80" height="80" rx="10" ry="10" fill="rgba(255,255,255,0.2)"/>
+                <g transform="translate(15, 25)">
+                  <path d="M5 35 Q8 20 25 15 Q35 12 48 18 Q52 8 55 5" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M25 15 Q30 28 25 40" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+                </g>
+              </svg>
+            </div>
+            <div class="post-item"></div>
+            <div class="post-item"></div>
+            <div class="post-item"></div>
+            <div class="post-item"></div>
+            <div class="post-item"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Twitter/X Profile -->
+      <div>
+        <p class="profile-label">Twitter / X</p>
+        <div class="twitter-profile">
+          <div class="twitter-banner">
+            <div class="twitter-avatar">
+              <svg viewBox="0 0 80 80">
+                <rect x="0" y="0" width="80" height="80" rx="10" ry="10" fill="#4a8f7f"/>
+                <g transform="translate(15, 25)">
+                  <path d="M5 35 Q8 20 25 15 Q35 12 48 18 Q52 8 55 5" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M25 15 Q30 28 25 40" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+                </g>
+              </svg>
+            </div>
+          </div>
+
+          <div class="twitter-content">
+            <div class="twitter-actions-row">
+              <button class="twitter-follow-btn">Follow</button>
+            </div>
+
+            <div class="twitter-name">
+              Park Enrichment
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#1d9bf0"><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"/></svg>
+            </div>
+            <div class="twitter-handle">@parkenrichment</div>
+
+            <div class="twitter-bio">
+              Enriching lives through nature. Community programs that connect people with parks, foster environmental stewardship, and create lasting positive impact.
+            </div>
+
+            <div class="twitter-meta">
+              <span>
+                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                National
+              </span>
+              <span>
+                <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                parkenrichment.org
+              </span>
+              <span>
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Joined March 2019
+              </span>
+            </div>
+
+            <div class="twitter-stats">
+              <div><strong>1,234</strong> <span>Following</span></div>
+              <div><strong>15.8K</strong> <span>Followers</span></div>
+            </div>
+
+            <div class="twitter-tabs">
+              <div class="twitter-tab active">Posts</div>
+              <div class="twitter-tab">Replies</div>
+              <div class="twitter-tab">Media</div>
+              <div class="twitter-tab">Likes</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

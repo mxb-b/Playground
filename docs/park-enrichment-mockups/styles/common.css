@@ -1,0 +1,126 @@
+/* Park Enrichment Brand Styles */
+
+:root {
+  /* Primary Brand Colors */
+  --pe-dark-teal: #3d7a6d;
+  --pe-medium-green: #2e9e7f;
+  --pe-light-green: #5bb89a;
+  --pe-lighter-green: #6bc4a6;
+  --pe-accent-teal: #4a8f7f;
+
+  /* Neutral Colors */
+  --pe-white: #ffffff;
+  --pe-off-white: #f8faf9;
+  --pe-light-gray: #e8ede9;
+  --pe-dark-gray: #2d3a36;
+  --pe-text-dark: #1a2421;
+
+  /* Typography */
+  --font-primary: 'Didact Gothic', 'Century Gothic', 'Segoe UI', Arial, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--pe-text-dark);
+  background-color: var(--pe-light-gray);
+  line-height: 1.6;
+}
+
+/* Utility Classes */
+.bg-dark-teal { background-color: var(--pe-dark-teal); }
+.bg-medium-green { background-color: var(--pe-medium-green); }
+.bg-light-green { background-color: var(--pe-light-green); }
+.bg-white { background-color: var(--pe-white); }
+
+.text-dark-teal { color: var(--pe-dark-teal); }
+.text-medium-green { color: var(--pe-medium-green); }
+.text-light-green { color: var(--pe-light-green); }
+.text-white { color: var(--pe-white); }
+
+/* Mockup Container */
+.mockup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px;
+  background: linear-gradient(135deg, #e8ede9 0%, #d4e0d8 100%);
+}
+
+.mockup-title {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--pe-dark-teal);
+  margin-bottom: 30px;
+  opacity: 0.7;
+}
+
+/* Shadow Effects */
+.shadow-soft {
+  box-shadow: 0 4px 20px rgba(61, 122, 109, 0.15);
+}
+
+.shadow-medium {
+  box-shadow: 0 8px 40px rgba(61, 122, 109, 0.2);
+}
+
+.shadow-strong {
+  box-shadow: 0 12px 60px rgba(61, 122, 109, 0.25);
+}
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 6px;
+  font-family: var(--font-primary);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--pe-medium-green);
+  color: var(--pe-white);
+}
+
+.btn-primary:hover {
+  background-color: var(--pe-dark-teal);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--pe-medium-green);
+  border: 2px solid var(--pe-medium-green);
+}
+
+.btn-outline:hover {
+  background-color: var(--pe-medium-green);
+  color: var(--pe-white);
+}
+
+/* Logo Component */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-icon {
+  width: auto;
+  height: auto;
+}

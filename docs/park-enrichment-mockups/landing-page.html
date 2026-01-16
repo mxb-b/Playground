@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Park Enrichment - Landing Page Mockup</title>
+  <link rel="stylesheet" href="styles/common.css">
+  <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: var(--pe-off-white);
+    }
+
+    /* Navigation */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: var(--pe-white);
+      box-shadow: 0 2px 20px rgba(61, 122, 109, 0.08);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    .nav-logo svg {
+      height: 45px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--pe-dark-teal);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--pe-medium-green);
+    }
+
+    .nav-cta {
+      background: var(--pe-medium-green);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: background 0.3s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--pe-dark-teal);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 60px 80px;
+      background: linear-gradient(135deg, var(--pe-off-white) 0%, #e5efe8 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(46, 158, 127, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -15%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(91, 184, 154, 0.06) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      max-width: 600px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(46, 158, 127, 0.1);
+      color: var(--pe-medium-green);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: 56px;
+      font-weight: 600;
+      color: var(--pe-dark-teal);
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--pe-dark-gray);
+      line-height: 1.8;
+      margin-bottom: 40px;
+      opacity: 0.85;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .hero-visual {
+      position: absolute;
+      right: 60px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+
+    .hero-visual svg {
+      width: 450px;
+      height: auto;
+      filter: drop-shadow(0 20px 40px rgba(61, 122, 109, 0.2));
+    }
+
+    /* Features Section */
+    .features {
+      padding: 100px 60px;
+      background: var(--pe-white);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 60px;
+    }
+
+    .section-header h2 {
+      font-family: var(--font-display);
+      font-size: 36px;
+      color: var(--pe-dark-teal);
+      margin-bottom: 16px;
+    }
+
+    .section-header p {
+      color: var(--pe-dark-gray);
+      opacity: 0.7;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: var(--pe-off-white);
+      padding: 40px 30px;
+      border-radius: 12px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(61, 122, 109, 0.12);
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--pe-medium-green), var(--pe-light-green));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    .feature-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: white;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .feature-card h3 {
+      font-size: 18px;
+      color: var(--pe-dark-teal);
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      color: var(--pe-dark-gray);
+      opacity: 0.7;
+      line-height: 1.7;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 100px 60px;
+      background: linear-gradient(135deg, var(--pe-dark-teal) 0%, var(--pe-accent-teal) 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+      border-radius: 50%;
+    }
+
+    .cta-section h2 {
+      font-family: var(--font-display);
+      font-size: 42px;
+      color: var(--pe-white);
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .cta-section p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 18px;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .cta-section .btn {
+      background: var(--pe-white);
+      color: var(--pe-dark-teal);
+      position: relative;
+    }
+
+    .cta-section .btn:hover {
+      background: var(--pe-off-white);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--pe-dark-gray);
+      padding: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo svg {
+      height: 40px;
+      opacity: 0.8;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--pe-light-green);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 15px;
+    }
+
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease;
+    }
+
+    .footer-social a:hover {
+      background: var(--pe-medium-green);
+    }
+
+    .footer-social svg {
+      width: 16px;
+      height: 16px;
+      stroke: white;
+      fill: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-logo">
+      <svg viewBox="0 0 520 140" height="45">
+        <rect x="0" y="0" width="80" height="80" rx="10" ry="10" fill="#4a8f7f"/>
+        <g transform="translate(15, 25)">
+          <path d="M5 35 Q8 20 25 15 Q35 12 48 18 Q52 8 55 5" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M25 15 Q30 28 25 40" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+        </g>
+        <rect x="90" y="0" width="80" height="80" rx="10" ry="10" fill="#2e9e7f"/>
+        <ellipse cx="140" cy="30" rx="22" ry="20" fill="white"/>
+        <rect x="180" y="0" width="80" height="80" rx="10" ry="10" fill="#3d7a6d"/>
+        <polygon points="220,8 180,80 260,80" fill="#2e9e7f"/>
+        <rect x="270" y="0" width="80" height="80" rx="10" ry="10" fill="#3d7a6d"/>
+        <ellipse cx="325" cy="50" rx="28" ry="24" fill="#5bb89a"/>
+        <rect x="360" y="0" width="80" height="80" rx="10" ry="10" fill="#4a8f7f"/>
+        <polygon points="395,0 440,0 440,45" fill="#6bc4a6"/>
+        <polygon points="395,80 440,80 440,35" fill="#5bb89a"/>
+        <text x="5" y="120" font-family="'Didact Gothic', sans-serif" font-size="32" font-weight="400" letter-spacing="6" fill="#2e9e7f">ENRICHMENT</text>
+      </svg>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#">Programs</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Community</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <a href="#" class="nav-cta">Get Involved</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">Community Programs</span>
+      <h1>Enriching Lives Through Nature</h1>
+      <p>Join our community programs that connect people with nature, foster environmental stewardship, and create lasting positive impact in our local parks.</p>
+      <div class="hero-buttons">
+        <a href="#" class="btn btn-primary">Explore Programs</a>
+        <a href="#" class="btn btn-outline">Learn More</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <svg viewBox="0 0 440 80">
+        <rect x="0" y="0" width="80" height="80" rx="10" ry="10" fill="#4a8f7f"/>
+        <g transform="translate(15, 25)">
+          <path d="M5 35 Q8 20 25 15 Q35 12 48 18 Q52 8 55 5" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M25 15 Q30 28 25 40" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+        </g>
+        <rect x="90" y="0" width="80" height="80" rx="10" ry="10" fill="#2e9e7f"/>
+        <ellipse cx="140" cy="30" rx="22" ry="20" fill="white"/>
+        <rect x="180" y="0" width="80" height="80" rx="10" ry="10" fill="#3d7a6d"/>
+        <polygon points="220,8 180,80 260,80" fill="#2e9e7f"/>
+        <rect x="270" y="0" width="80" height="80" rx="10" ry="10" fill="#3d7a6d"/>
+        <ellipse cx="325" cy="50" rx="28" ry="24" fill="#5bb89a"/>
+        <rect x="360" y="0" width="80" height="80" rx="10" ry="10" fill="#4a8f7f"/>
+        <polygon points="395,0 440,0 440,45" fill="#6bc4a6"/>
+        <polygon points="395,80 440,80 440,35" fill="#5bb89a"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="section-header">
+      <h2>Our Programs</h2>
+      <p>Discover meaningful ways to connect with nature and community</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Youth Education</h3>
+        <p>Hands-on environmental education programs designed to inspire the next generation of nature stewards.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Community Events</h3>
+        <p>Regular gatherings that bring neighbors together for park cleanups, nature walks, and celebrations.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Conservation</h3>
+        <p>Active preservation initiatives protecting local ecosystems and wildlife habitats for future generations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <h2>Ready to Make a Difference?</h2>
+    <p>Join thousands of community members enriching our parks every day.</p>
+    <a href="#" class="btn">Become a Volunteer</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo">
+      <svg viewBox="0 0 520 140" height="40">
+        <rect x="0" y="0" width="80" height="80" rx="10" ry="10" fill="#4a8f7f"/>
+        <g transform="translate(15, 25)">
+          <path d="M5 35 Q8 20 25 15 Q35 12 48 18 Q52 8 55 5" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M25 15 Q30 28 25 40" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+        </g>
+        <rect x="90" y="0" width="80" height="80" rx="10" ry="10" fill="#2e9e7f"/>
+        <ellipse cx="140" cy="30" rx="22" ry="20" fill="white"/>
+        <rect x="180" y="0" width="80" height="80" rx="10" ry="10" fill="#3d7a6d"/>
+        <polygon points="220,8 180,80 260,80" fill="#2e9e7f"/>
+        <rect x="270" y="0" width="80" height="80" rx="10" ry="10" fill="#3d7a6d"/>
+        <ellipse cx="325" cy="50" rx="28" ry="24" fill="#5bb89a"/>
+        <rect x="360" y="0" width="80" height="80" rx="10" ry="10" fill="#4a8f7f"/>
+        <polygon points="395,0 440,0 440,45" fill="#6bc4a6"/>
+        <polygon points="395,80 440,80 440,35" fill="#5bb89a"/>
+        <text x="5" y="120" font-family="'Didact Gothic', sans-serif" font-size="32" font-weight="400" letter-spacing="6" fill="#5bb89a">ENRICHMENT</text>
+      </svg>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms of Service</a></li>
+      <li><a href="#">Donate</a></li>
+      <li><a href="#">Careers</a></li>
+    </ul>
+    <div class="footer-social">
+      <a href="#"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      <a href="#"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+      <a href="#"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+    </div>
+  </footer>
+</body>
+</html>

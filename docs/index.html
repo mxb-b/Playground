@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Park Enrichment - Brand Mockups</title>
+  <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pe-dark-teal: #3d7a6d;
+      --pe-medium-green: #2e9e7f;
+      --pe-light-green: #5bb89a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Didact Gothic', 'Century Gothic', Arial, sans-serif;
+      background: linear-gradient(135deg, #f8faf9 0%, #e5efe8 100%);
+      min-height: 100vh;
+      padding: 60px 40px;
+    }
+    .container { max-width: 1000px; margin: 0 auto; }
+    header { text-align: center; margin-bottom: 60px; }
+    .logo { margin-bottom: 20px; }
+    .logo svg { height: 80px; width: auto; }
+    h1 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--pe-dark-teal);
+      opacity: 0.7;
+    }
+    .mockups-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .mockup-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(61, 122, 109, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    .mockup-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(61, 122, 109, 0.2);
+    }
+    .card-preview {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card-preview.business-card { background: linear-gradient(145deg, #2d3a36 0%, #1a2421 100%); }
+    .card-preview.landing-page { background: linear-gradient(135deg, #e5efe8 0%, #d4e0d8 100%); }
+    .card-preview.social-media { background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%); }
+    .card-preview.tshirt { background: linear-gradient(145deg, #f5f5f0 0%, #e8e8e0 100%); }
+    .card-preview svg { height: 50px; width: auto; opacity: 0.9; }
+    .card-content { padding: 24px; }
+    .card-content h2 { font-size: 18px; color: var(--pe-dark-teal); margin-bottom: 8px; }
+    .card-content p { font-size: 14px; color: #666; line-height: 1.5; }
+    .card-arrow { display: inline-block; margin-left: 8px; transition: transform 0.3s ease; }
+    .mockup-card:hover .card-arrow { transform: translateX(4px); }
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(61, 122, 109, 0.1);
+    }
+    footer p {
+      font-size: 12px;
+      color: var(--pe-dark-teal);
+      opacity: 0.5;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <svg viewBox="0 0 520 140" height="80">
+          <rect x="0" y="0" width="80" height="80" rx="10" ry="10" fill="#4a8f7f"/>
+          <g transform="translate(15, 25)">
+            <path d="M5 35 Q8 20 25 15 Q35 12 48 18 Q52 8 55 5" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M25 15 Q30 28 25 40" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </g>
+          <rect x="90" y="0" width="80" height="80" rx="10" ry="10" fill="#2e9e7f"/>
+          <ellipse cx="140" cy="30" rx="22" ry="20" fill="white"/>
+          <rect x="180" y="0" width="80" height="80" rx="10" ry="10" fill="#3d7a6d"/>
+          <polygon points="220,8 180,80 260,80" fill="#2e9e7f"/>
+          <rect x="270" y="0" width="80" height="80" rx="10" ry="10" fill="#3d7a6d"/>
+          <ellipse cx="325" cy="50" rx="28" ry="24" fill="#5bb89a"/>
+          <rect x="360" y="0" width="80" height="80" rx="10" ry="10" fill="#4a8f7f"/>
+          <polygon points="395,0 440,0 440,45" fill="#6bc4a6"/>
+          <polygon points="395,80 440,80 440,35" fill="#5bb89a"/>
+          <text x="5" y="120" font-family="'Didact Gothic', sans-serif" font-size="32" font-weight="400" letter-spacing="6" fill="#2e9e7f">ENRICHMENT</text>
+        </svg>
+      </div>
+      <h1>Brand Mockups</h1>
+    </header>
+    <div class="mockups-grid">
+      <a href="park-enrichment-mockups/business-card.html" class="mockup-card">
+        <div class="card-preview business-card">
+          <svg viewBox="0 0 80 80"><rect x="0" y="0" width="80" height="80" rx="10" fill="rgba(255,255,255,0.15)"/><g transform="translate(15, 25)"><path d="M5 35 Q8 20 25 15 Q35 12 48 18 Q52 8 55 5" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M25 15 Q30 28 25 40" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/></g></svg>
+        </div>
+        <div class="card-content">
+          <h2>Business Card <span class="card-arrow">→</span></h2>
+          <p>Professional front and back card designs with contact information layout.</p>
+        </div>
+      </a>
+      <a href="park-enrichment-mockups/landing-page.html" class="mockup-card">
+        <div class="card-preview landing-page">
+          <svg viewBox="0 0 80 80"><rect x="0" y="0" width="80" height="80" rx="10" fill="#4a8f7f"/><g transform="translate(15, 25)"><path d="M5 35 Q8 20 25 15 Q35 12 48 18 Q52 8 55 5" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M25 15 Q30 28 25 40" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/></g></svg>
+        </div>
+        <div class="card-content">
+          <h2>Landing Page <span class="card-arrow">→</span></h2>
+          <p>Complete website layout with navigation, hero section, features, and footer.</p>
+        </div>
+      </a>
+      <a href="park-enrichment-mockups/social-media-profile.html" class="mockup-card">
+        <div class="card-preview social-media">
+          <svg viewBox="0 0 80 80"><rect x="0" y="0" width="80" height="80" rx="10" fill="rgba(255,255,255,0.15)"/><g transform="translate(15, 25)"><path d="M5 35 Q8 20 25 15 Q35 12 48 18 Q52 8 55 5" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M25 15 Q30 28 25 40" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/></g></svg>
+        </div>
+        <div class="card-content">
+          <h2>Social Media <span class="card-arrow">→</span></h2>
+          <p>Instagram and Twitter/X profile mockups with bio and post grid.</p>
+        </div>
+      </a>
+      <a href="park-enrichment-mockups/t-shirt.html" class="mockup-card">
+        <div class="card-preview tshirt">
+          <svg viewBox="0 0 80 80"><rect x="0" y="0" width="80" height="80" rx="10" fill="#4a8f7f"/><g transform="translate(15, 25)"><path d="M5 35 Q8 20 25 15 Q35 12 48 18 Q52 8 55 5" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M25 15 Q30 28 25 40" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/></g></svg>
+        </div>
+        <div class="card-content">
+          <h2>T-Shirt <span class="card-arrow">→</span></h2>
+          <p>Apparel mockups in multiple colors with front and back logo placement.</p>
+        </div>
+      </a>
+    </div>
+    <footer>
+      <p>Park Enrichment Brand Guidelines</p>
+    </footer>
+  </div>
+</body>
+</html>
