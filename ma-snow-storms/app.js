@@ -15,6 +15,7 @@ class App {
     init() {
         this.cacheElements();
         this.bindEvents();
+        this.setHeroBackground();
         this.renderFeaturedStorm();
         this.renderStormsGrid();
         this.initScrollAnimations();
@@ -33,6 +34,22 @@ class App {
         this.mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         this.navLinksContainer = document.querySelector('.nav-links');
         this.learnCards = document.querySelectorAll('.learn-card');
+        this.heroSection = document.querySelector('.hero-section');
+    }
+
+    setHeroBackground() {
+        if (this.heroSection && StormsDatabase.heroImages) {
+            const heroUrl = StormsDatabase.heroImages.home;
+            this.heroSection.style.setProperty('--hero-bg', `url('${heroUrl}')`);
+
+            // Also set it directly on the hero background element
+            const heroBg = this.heroSection.querySelector('.hero-background');
+            if (heroBg) {
+                heroBg.style.backgroundImage = `linear-gradient(135deg, rgba(10, 22, 40, 0.85) 0%, rgba(26, 39, 68, 0.9) 100%), url('${heroUrl}')`;
+                heroBg.style.backgroundSize = 'cover';
+                heroBg.style.backgroundPosition = 'center';
+            }
+        }
     }
 
     bindEvents() {
@@ -96,7 +113,7 @@ class App {
         if (!storm) return;
 
         this.featuredStorm.innerHTML = `
-            <div class="featured-image" data-storm="${storm.id}"></div>
+            <div class="featured-image" style="background-image: url('${storm.heroImage}'); background-size: cover; background-position: center;"></div>
             <div class="featured-content">
                 <h3>${storm.name}</h3>
                 <p class="featured-date">${storm.dateRange}</p>
@@ -131,7 +148,7 @@ class App {
 
         this.stormsGrid.innerHTML = stormsToRender.map(storm => `
             <div class="storm-card" data-storm-id="${storm.id}">
-                <div class="storm-card-image" data-year="${storm.year}">
+                <div class="storm-card-image" style="background-image: url('${storm.cardImage}'); background-size: cover; background-position: center;">
                     ${storm.nesisCategory ? `<span class="storm-category">${storm.nesisCategory}</span>` : ''}
                 </div>
                 <div class="storm-card-content">
@@ -183,10 +200,27 @@ class App {
         const storm = StormsDatabase.getStormById(stormId);
         if (!storm || !this.stormModal || !this.modalBody) return;
 
+        // Build image gallery HTML
+        const imageGalleryHtml = storm.images && storm.images.length > 0 ? `
+            <div class="modal-section">
+                <h3>Photo Gallery</h3>
+                <div class="storm-image-gallery">
+                    ${storm.images.map((img, idx) => `
+                        <div class="gallery-image-item" data-index="${idx}">
+                            <img src="${img.url}" alt="${img.caption}" loading="lazy">
+                            <div class="gallery-image-caption">${img.caption}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        ` : '';
+
         this.modalBody.innerHTML = `
-            <div class="modal-header">
-                <h2>${storm.name}</h2>
-                <p class="storm-date">${storm.dateRange}</p>
+            <div class="modal-hero" style="background-image: url('${storm.heroImage}');">
+                <div class="modal-hero-overlay">
+                    <h2>${storm.name}</h2>
+                    <p class="storm-date">${storm.dateRange}</p>
+                </div>
             </div>
 
             <div class="modal-stats-grid">
@@ -221,6 +255,8 @@ class App {
                     </div>
                 ` : ''}
             </div>
+
+            ${imageGalleryHtml}
 
             <div class="modal-section">
                 <h3>Overview</h3>
@@ -262,7 +298,7 @@ class App {
             </div>
         `;
 
-        // Add regional snowfall styles
+        // Add styles
         this.injectModalStyles();
 
         this.stormModal.classList.add('active');
@@ -421,6 +457,73 @@ class App {
         const style = document.createElement('style');
         style.id = 'modal-extra-styles';
         style.textContent = `
+            .modal-hero {
+                height: 300px;
+                background-size: cover;
+                background-position: center;
+                position: relative;
+                margin: -2rem -2rem 2rem -2rem;
+                border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+            }
+
+            .modal-hero-overlay {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 3rem 2rem 2rem;
+                background: linear-gradient(transparent, rgba(10, 22, 40, 0.95));
+            }
+
+            .modal-hero-overlay h2 {
+                font-family: var(--font-display);
+                font-size: 2.5rem;
+                margin-bottom: 0.5rem;
+                color: var(--snow-white);
+            }
+
+            .modal-hero-overlay .storm-date {
+                color: var(--ice-blue);
+                font-size: 1.125rem;
+            }
+
+            .storm-image-gallery {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
+            .gallery-image-item {
+                position: relative;
+                border-radius: var(--radius-md);
+                overflow: hidden;
+                cursor: pointer;
+                transition: transform var(--transition-fast);
+            }
+
+            .gallery-image-item:hover {
+                transform: scale(1.02);
+            }
+
+            .gallery-image-item img {
+                width: 100%;
+                height: 180px;
+                object-fit: cover;
+                display: block;
+            }
+
+            .gallery-image-caption {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 0.75rem;
+                background: linear-gradient(transparent, rgba(10, 22, 40, 0.9));
+                color: var(--snow-white);
+                font-size: 0.8125rem;
+            }
+
             .regional-snowfall {
                 display: grid;
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -526,6 +629,24 @@ class App {
 
             .educational-content td {
                 color: var(--silver);
+            }
+
+            @media (max-width: 768px) {
+                .modal-hero {
+                    height: 200px;
+                }
+
+                .modal-hero-overlay h2 {
+                    font-size: 1.75rem;
+                }
+
+                .storm-image-gallery {
+                    grid-template-columns: 1fr 1fr;
+                }
+
+                .gallery-image-item img {
+                    height: 120px;
+                }
             }
         `;
         document.head.appendChild(style);

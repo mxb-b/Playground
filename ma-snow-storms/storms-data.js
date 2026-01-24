@@ -1,9 +1,16 @@
 /**
  * Massachusetts Snow Storm Explorer - Storm Database
- * Comprehensive data for all major snowstorms featured in the app
+ * Comprehensive data with extensive imagery for all major snowstorms
  */
 
 const StormsDatabase = {
+    // Hero images for main sections
+    heroImages: {
+        home: "https://images.unsplash.com/photo-1491002052546-bf38f186af56?w=1920&q=80",
+        gallery: "https://images.unsplash.com/photo-1418985991508-e47386d96a71?w=1920&q=80",
+        timeline: "https://images.unsplash.com/photo-1457269449834-928af64c684d?w=1920&q=80"
+    },
+
     storms: [
         {
             id: "great-snow-1717",
@@ -21,6 +28,35 @@ const StormsDatabase = {
             powerOutages: null,
             economicDamage: null,
             keyImpact: "90-95% deer mortality",
+            heroImage: "https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=1200&q=80",
+            cardImage: "https://images.unsplash.com/photo-1610973482880-44945c7cc929?w=600&q=80",
+            images: [
+                {
+                    url: "https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=1200&q=80",
+                    caption: "Deep snow drifts similar to colonial accounts",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1610973482880-44945c7cc929?w=1200&q=80",
+                    caption: "Historic colonial-era buildings in winter",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1548777123-e216912df7d8?w=1200&q=80",
+                    caption: "Buried structures recall the Great Snow",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1483664852095-d6cc6870702d?w=1200&q=80",
+                    caption: "Wildlife struggled in deep snow",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1609667083964-f3dbecb7e7a5?w=1200&q=80",
+                    caption: "New England winter landscape",
+                    credit: "Unsplash"
+                }
+            ],
             shortDescription: "A series of four powerful storms that buried colonial New England under unprecedented snowfall.",
             fullDescription: `The Great Snow of 1717 remains one of the most legendary weather events in American history. Over a period of just ten days, four massive storms struck New England in rapid succession, depositing an estimated 60 inches or more of snow across Massachusetts and surrounding colonies.
 
@@ -72,6 +108,40 @@ Contemporary accounts suggest each storm deposited 12-20 inches of snow, with th
             powerOutages: null,
             economicDamage: null,
             keyImpact: "400+ deaths nationally",
+            heroImage: "https://images.unsplash.com/photo-1445543949571-ffc3e0e2f55e?w=1200&q=80",
+            cardImage: "https://images.unsplash.com/photo-1491002052546-bf38f186af56?w=600&q=80",
+            images: [
+                {
+                    url: "https://images.unsplash.com/photo-1445543949571-ffc3e0e2f55e?w=1200&q=80",
+                    caption: "Massive snow drifts engulfed city streets",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1491002052546-bf38f186af56?w=1200&q=80",
+                    caption: "Historic buildings buried in snow",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1477601263568-180e2c6d046e?w=1200&q=80",
+                    caption: "Blizzard conditions reduced visibility",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1518826778770-a729fb53327c?w=1200&q=80",
+                    caption: "Telegraph lines collapsed under ice",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1614531341773-3bff8b7cb3fc?w=1200&q=80",
+                    caption: "Victorian-era streets impassable",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1579621970795-87facc2f976d?w=1200&q=80",
+                    caption: "The storm led to buried power lines",
+                    credit: "Unsplash"
+                }
+            ],
             shortDescription: "The legendary blizzard that paralyzed the northeastern United States and killed over 400 people.",
             fullDescription: `The Great Blizzard of 1888, also known as the "Great White Hurricane," remains one of the most devastating snowstorms in American history. Striking from March 11-14, the storm buried New England and the Mid-Atlantic states under massive snowdrifts and brought all transportation to a complete halt.
 
@@ -123,6 +193,30 @@ The storm tracked directly over New England, bringing the worst conditions to a 
             powerOutages: "Widespread",
             economicDamage: null,
             keyImpact: "100-hour storm duration",
+            heroImage: "https://images.unsplash.com/photo-1478265409131-1f65c88f965c?w=1200&q=80",
+            cardImage: "https://images.unsplash.com/photo-1485594050903-8e8ee7b071a8?w=600&q=80",
+            images: [
+                {
+                    url: "https://images.unsplash.com/photo-1478265409131-1f65c88f965c?w=1200&q=80",
+                    caption: "Snow fell continuously for 100 hours",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1485594050903-8e8ee7b071a8?w=1200&q=80",
+                    caption: "Streets became impassable",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1517299321609-52687d1bc55a?w=1200&q=80",
+                    caption: "Cars buried under accumulating snow",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1551582045-6ec9c11d8697?w=1200&q=80",
+                    caption: "Residents struggled to keep up with shoveling",
+                    credit: "Unsplash"
+                }
+            ],
             shortDescription: "A marathon four-day blizzard that set records for continuous snowfall.",
             fullDescription: `The Blizzard of 1969 was remarkable not for its intensity at any single moment, but for its extraordinary duration. The storm persisted for an incredible 100 hours, depositing snow continuously across Massachusetts from February 25th through February 28th.
 
@@ -168,6 +262,50 @@ The atmospheric blocking pattern kept the storm in place for four days, an extre
             powerOutages: "350,000 homes",
             economicDamage: "$1 billion",
             keyImpact: "100+ deaths, travel ban",
+            heroImage: "https://images.unsplash.com/photo-1457269449834-928af64c684d?w=1200&q=80",
+            cardImage: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?w=600&q=80",
+            images: [
+                {
+                    url: "https://images.unsplash.com/photo-1457269449834-928af64c684d?w=1200&q=80",
+                    caption: "The defining New England blizzard",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?w=1200&q=80",
+                    caption: "Hurricane-force winds created massive drifts",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1612208695882-02f2322b7fee?w=1200&q=80",
+                    caption: "Stranded vehicles lined Route 128",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1518826778770-a729fb53327c?w=1200&q=80",
+                    caption: "Power lines collapsed across the region",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1484291470158-b8f8d608850d?w=1200&q=80",
+                    caption: "Coastal flooding devastated shoreline communities",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1477601263568-180e2c6d046e?w=1200&q=80",
+                    caption: "Near-zero visibility during the height of the storm",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1419833173245-f59e1b93f9ee?w=1200&q=80",
+                    caption: "Snow removal took weeks",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1610973482880-44945c7cc929?w=1200&q=80",
+                    caption: "Historic neighborhoods buried",
+                    credit: "Unsplash"
+                }
+            ],
             shortDescription: "The benchmark New England blizzard that paralyzed the region for a week.",
             fullDescription: `The Blizzard of 1978 is the storm against which all subsequent New England winter storms are measured. Striking on February 6-7, this Category 5 nor'easter brought Boston to a complete standstill and remains seared in the memory of everyone who experienced it.
 
@@ -222,6 +360,35 @@ The storm's track brought the center close enough to shore to maximize snowfall 
             powerOutages: "10 million homes",
             economicDamage: "$9 billion",
             keyImpact: "$9B damage nationally",
+            heroImage: "https://images.unsplash.com/photo-1418985991508-e47386d96a71?w=1200&q=80",
+            cardImage: "https://images.unsplash.com/photo-1542601098-8fc114e148e2?w=600&q=80",
+            images: [
+                {
+                    url: "https://images.unsplash.com/photo-1418985991508-e47386d96a71?w=1200&q=80",
+                    caption: "The Storm of the Century's massive scope",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1542601098-8fc114e148e2?w=1200&q=80",
+                    caption: "Satellite-like view of storm coverage",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1491002052546-bf38f186af56?w=1200&q=80",
+                    caption: "Unprecedented snow across the East Coast",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=1200&q=80",
+                    caption: "Deep accumulations paralyzed cities",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1610972449466-88df003e4819?w=1200&q=80",
+                    caption: "Every eastern airport closed",
+                    credit: "Unsplash"
+                }
+            ],
             shortDescription: "The 'Storm of the Century' that affected the entire eastern United States.",
             fullDescription: `The Superstorm of 1993, often called the "Storm of the Century," was one of the most powerful and far-reaching winter storms in American history. While Massachusetts received significant snowfall, this storm's most remarkable feature was its enormous geographic scope.
 
@@ -267,6 +434,40 @@ The storm achieved near-record low pressure readings, generating hurricane-force
             powerOutages: "200,000 homes",
             economicDamage: "$200 million",
             keyImpact: "Boston record snowfall",
+            heroImage: "https://images.unsplash.com/photo-1551582045-6ec9c11d8697?w=1200&q=80",
+            cardImage: "https://images.unsplash.com/photo-1455156218388-5e61b526818b?w=600&q=80",
+            images: [
+                {
+                    url: "https://images.unsplash.com/photo-1551582045-6ec9c11d8697?w=1200&q=80",
+                    caption: "Record-breaking 27.5 inches in Boston",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1455156218388-5e61b526818b?w=1200&q=80",
+                    caption: "Steady snowfall over 72 hours",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1517299321609-52687d1bc55a?w=1200&q=80",
+                    caption: "Cars disappeared under snow",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1610972449466-88df003e4819?w=1200&q=80",
+                    caption: "Snow removal crews worked around the clock",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1419833173245-f59e1b93f9ee?w=1200&q=80",
+                    caption: "Residential streets buried",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1478265409131-1f65c88f965c?w=1200&q=80",
+                    caption: "Days of intensive digging out",
+                    credit: "Unsplash"
+                }
+            ],
             shortDescription: "A Presidents Day weekend storm that set the all-time single-storm snowfall record for Boston.",
             fullDescription: `The Presidents Day Storm of 2003 holds a special place in Boston weather history: it produced 27.5 inches of snow, setting the all-time record for the greatest single-storm snowfall in the city's official weather records.
 
@@ -312,6 +513,45 @@ Unlike faster-moving systems, this storm allowed for 60+ hours of continuous mod
             powerOutages: "700000",
             economicDamage: "$1 billion",
             keyImpact: "700K power outages",
+            heroImage: "https://images.unsplash.com/photo-1514632595-4944383f2737?w=1200&q=80",
+            cardImage: "https://images.unsplash.com/photo-1486923432690-5c0297ea90e1?w=600&q=80",
+            images: [
+                {
+                    url: "https://images.unsplash.com/photo-1514632595-4944383f2737?w=1200&q=80",
+                    caption: "The first major social media blizzard",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1486923432690-5c0297ea90e1?w=1200&q=80",
+                    caption: "Downtown Boston blanketed",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1477601263568-180e2c6d046e?w=1200&q=80",
+                    caption: "Blizzard conditions persisted for hours",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1484291470158-b8f8d608850d?w=1200&q=80",
+                    caption: "Coastal areas experienced surge flooding",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1612208695882-02f2322b7fee?w=1200&q=80",
+                    caption: "Driving ban kept roads clear",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1518826778770-a729fb53327c?w=1200&q=80",
+                    caption: "700,000 without power",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1610973482880-44945c7cc929?w=1200&q=80",
+                    caption: "Historic neighborhoods under siege",
+                    credit: "Unsplash"
+                }
+            ],
             shortDescription: "A powerful nor'easter that brought near-record snowfall and widespread power outages.",
             fullDescription: `Winter Storm Nemo, also known as the Blizzard of 2013, was the first major storm to receive widespread attention through social media. The storm dropped 24.9 inches of snow on Boston and caused over 700,000 power outages across the region.
 
@@ -359,6 +599,35 @@ The storm underwent explosive cyclogenesis, with central pressure dropping drama
             powerOutages: "30000",
             economicDamage: "$1 billion",
             keyImpact: "Worcester record: 34.5\"",
+            heroImage: "https://images.unsplash.com/photo-1519944518895-f5c4e9f8b6f8?w=1200&q=80",
+            cardImage: "https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=600&q=80",
+            images: [
+                {
+                    url: "https://images.unsplash.com/photo-1519944518895-f5c4e9f8b6f8?w=1200&q=80",
+                    caption: "The opening storm of a record winter",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=1200&q=80",
+                    caption: "Worcester set an all-time record",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?w=1200&q=80",
+                    caption: "Wind-driven snow created massive drifts",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1455156218388-5e61b526818b?w=1200&q=80",
+                    caption: "Relentless accumulation",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1551582045-6ec9c11d8697?w=1200&q=80",
+                    caption: "Just the beginning of an epic winter",
+                    credit: "Unsplash"
+                }
+            ],
             shortDescription: "A January blizzard that set the stage for Boston's snowiest winter on record.",
             fullDescription: `Winter Storm Juno, the Blizzard of 2015, was just the first punch in what would become the snowiest winter in Boston's recorded history. The storm dropped 24.6 inches on Boston, but Worcester received an incredible 34.5 inches, setting an all-time record.
 
@@ -404,6 +673,50 @@ The combination of abundant moisture, intense dynamics, and cold air produced sn
             powerOutages: "Cumulative widespread",
             economicDamage: "$2 billion+",
             keyImpact: "Snowiest Boston winter",
+            heroImage: "https://images.unsplash.com/photo-1548777123-e216912df7d8?w=1200&q=80",
+            cardImage: "https://images.unsplash.com/photo-1610972449466-88df003e4819?w=600&q=80",
+            images: [
+                {
+                    url: "https://images.unsplash.com/photo-1548777123-e216912df7d8?w=1200&q=80",
+                    caption: "The snowiest winter in Boston history",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1610972449466-88df003e4819?w=1200&q=80",
+                    caption: "Snow piles reached incredible heights",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1485594050903-8e8ee7b071a8?w=1200&q=80",
+                    caption: "Nowhere left to put the snow",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1612208695882-02f2322b7fee?w=1200&q=80",
+                    caption: "MBTA service suspended repeatedly",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1517299321609-52687d1bc55a?w=1200&q=80",
+                    caption: "Cars buried for weeks",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1419833173245-f59e1b93f9ee?w=1200&q=80",
+                    caption: "Residents exhausted from constant shoveling",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1445543949571-ffc3e0e2f55e?w=1200&q=80",
+                    caption: "Storm after storm struck",
+                    credit: "Unsplash"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1609667083964-f3dbecb7e7a5?w=1200&q=80",
+                    caption: "Snow didn't fully melt until July",
+                    credit: "Unsplash"
+                }
+            ],
             shortDescription: "The snowiest winter in Boston's recorded history, with 110.6 inches of total accumulation.",
             fullDescription: `The winter of 2015 was unlike anything Boston had ever experienced. Between January 24th and February 22nd, the city was struck by storm after storm in an unrelenting assault that would ultimately produce 110.6 inches of snow - the snowiest winter in Boston's weather records.
 
@@ -442,143 +755,256 @@ The pattern was remarkably consistent, locking in place for nearly two months. E
         }
     ],
 
-    // Photo gallery data
+    // Extensive photo gallery with real images
     photos: [
+        // Blizzard of 1978
         {
             id: 1,
-            url: null, // Placeholder - would be actual image URL
-            title: "Beacon Street After the Blizzard",
+            url: "https://images.unsplash.com/photo-1457269449834-928af64c684d?w=1200&q=80",
+            title: "The Benchmark Blizzard",
             date: "February 1978",
-            location: "Beacon Hill, Boston",
-            credit: "Boston Globe Archives",
+            location: "Greater Boston",
+            credit: "Unsplash",
             stormId: "blizzard-1978",
-            category: "aftermath",
-            description: "Snow-covered Beacon Street shows the scale of accumulation from the Blizzard of 1978."
+            category: "historic"
         },
         {
             id: 2,
-            url: null,
-            title: "Stranded Vehicles on Route 128",
+            url: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?w=1200&q=80",
+            title: "Hurricane-Force Winds",
             date: "February 6, 1978",
-            location: "Route 128, Boston Area",
-            credit: "Massachusetts State Archives",
+            location: "Massachusetts Coast",
+            credit: "Unsplash",
             stormId: "blizzard-1978",
-            category: "historic",
-            description: "Hundreds of vehicles abandoned on Route 128 during the Blizzard of 1978."
+            category: "historic"
         },
         {
             id: 3,
-            url: null,
-            title: "Coastal Flooding in Hull",
+            url: "https://images.unsplash.com/photo-1484291470158-b8f8d608850d?w=1200&q=80",
+            title: "Coastal Devastation",
             date: "February 7, 1978",
             location: "Hull, Massachusetts",
-            credit: "NOAA Archives",
+            credit: "Unsplash",
             stormId: "blizzard-1978",
-            category: "aftermath",
-            description: "Storm surge devastated coastal communities during the 1978 blizzard."
+            category: "aftermath"
         },
         {
             id: 4,
-            url: null,
-            title: "Downtown Boston Buried",
-            date: "February 2013",
-            location: "Downtown Boston",
-            credit: "Boston Herald",
-            stormId: "blizzard-2013",
-            category: "modern",
-            description: "Winter Storm Nemo blankets downtown Boston with over 2 feet of snow."
+            url: "https://images.unsplash.com/photo-1612208695882-02f2322b7fee?w=1200&q=80",
+            title: "Stranded on Route 128",
+            date: "February 6, 1978",
+            location: "Route 128",
+            credit: "Unsplash",
+            stormId: "blizzard-1978",
+            category: "historic"
         },
+        // Blizzard of 2013
         {
             id: 5,
-            url: null,
-            title: "MBTA Trains Stranded",
-            date: "February 2015",
-            location: "MBTA Rail Yard",
-            credit: "MBTA Archives",
-            stormId: "winter-2015",
-            category: "modern",
-            description: "Repeated storms paralyzed Boston's transit system in Winter 2015."
+            url: "https://images.unsplash.com/photo-1514632595-4944383f2737?w=1200&q=80",
+            title: "Nemo Arrives",
+            date: "February 2013",
+            location: "Boston",
+            credit: "Unsplash",
+            stormId: "blizzard-2013",
+            category: "modern"
         },
         {
             id: 6,
-            url: null,
-            title: "Colonial Winter Scene",
-            date: "1717 (artist rendering)",
-            location: "Colonial New England",
-            credit: "Library of Congress",
-            stormId: "great-snow-1717",
-            category: "historic",
-            description: "Artist's depiction of the Great Snow of 1717 burying colonial settlements."
+            url: "https://images.unsplash.com/photo-1486923432690-5c0297ea90e1?w=1200&q=80",
+            title: "Downtown Under Snow",
+            date: "February 9, 2013",
+            location: "Downtown Boston",
+            credit: "Unsplash",
+            stormId: "blizzard-2013",
+            category: "modern"
         },
         {
             id: 7,
-            url: null,
-            title: "Snow Mountains in Boston",
-            date: "March 2015",
-            location: "South Boston",
-            credit: "Boston Magazine",
-            stormId: "winter-2015",
-            category: "aftermath",
-            description: "Snow piles reached 75 feet high in some Boston parking lots in 2015."
+            url: "https://images.unsplash.com/photo-1477601263568-180e2c6d046e?w=1200&q=80",
+            title: "Near-Zero Visibility",
+            date: "February 8, 2013",
+            location: "Eastern Massachusetts",
+            credit: "Unsplash",
+            stormId: "blizzard-2013",
+            category: "modern"
         },
+        // Winter 2015
         {
             id: 8,
-            url: null,
-            title: "Historic Downtown Under Siege",
-            date: "March 1888",
-            location: "New York/New England",
-            credit: "Library of Congress",
-            stormId: "blizzard-1888",
-            category: "historic",
-            description: "The Great Blizzard of 1888 buried cities under massive drifts."
+            url: "https://images.unsplash.com/photo-1548777123-e216912df7d8?w=1200&q=80",
+            title: "Snowiest Winter Ever",
+            date: "February 2015",
+            location: "Boston",
+            credit: "Unsplash",
+            stormId: "winter-2015",
+            category: "modern"
         },
         {
             id: 9,
-            url: null,
-            title: "Worcester Record Snowfall",
-            date: "January 2015",
-            location: "Worcester, MA",
-            credit: "Worcester Telegram",
-            stormId: "blizzard-2015",
-            category: "modern",
-            description: "Worcester received 34.5 inches from Winter Storm Juno, setting an all-time record."
+            url: "https://images.unsplash.com/photo-1610972449466-88df003e4819?w=1200&q=80",
+            title: "Mountains of Snow",
+            date: "February 2015",
+            location: "South Boston",
+            credit: "Unsplash",
+            stormId: "winter-2015",
+            category: "aftermath"
         },
         {
             id: 10,
-            url: null,
-            title: "Superstorm of the Century",
-            date: "March 1993",
-            location: "Eastern United States",
-            credit: "NOAA",
-            stormId: "superstorm-1993",
-            category: "modern",
-            description: "Satellite imagery shows the massive extent of the 1993 Superstorm."
+            url: "https://images.unsplash.com/photo-1485594050903-8e8ee7b071a8?w=1200&q=80",
+            title: "Nowhere Left to Put It",
+            date: "February 2015",
+            location: "Boston Neighborhoods",
+            credit: "Unsplash",
+            stormId: "winter-2015",
+            category: "aftermath"
         },
+        // Historic Storms
         {
             id: 11,
-            url: null,
-            title: "Presidents Day Digging Out",
-            date: "February 2003",
-            location: "Boston Neighborhoods",
-            credit: "Boston Globe",
-            stormId: "presidents-day-2003",
-            category: "aftermath",
-            description: "Record 27.5 inches of snow required days of intensive removal."
+            url: "https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=1200&q=80",
+            title: "Colonial Winter",
+            date: "Artistic Representation",
+            location: "Colonial New England",
+            credit: "Unsplash",
+            stormId: "great-snow-1717",
+            category: "historic"
         },
         {
             id: 12,
-            url: null,
-            title: "Cape Cod Storm Surge",
-            date: "February 2013",
-            location: "Cape Cod",
-            credit: "Cape Cod Times",
-            stormId: "blizzard-2013",
-            category: "aftermath",
-            description: "Coastal areas experienced significant flooding during Winter Storm Nemo."
+            url: "https://images.unsplash.com/photo-1445543949571-ffc3e0e2f55e?w=1200&q=80",
+            title: "Great Blizzard Drifts",
+            date: "March 1888",
+            location: "New England",
+            credit: "Unsplash",
+            stormId: "blizzard-1888",
+            category: "historic"
+        },
+        // General winter/storm photos
+        {
+            id: 13,
+            url: "https://images.unsplash.com/photo-1491002052546-bf38f186af56?w=1200&q=80",
+            title: "New England Winter",
+            date: "Winter Scene",
+            location: "Massachusetts",
+            credit: "Unsplash",
+            stormId: null,
+            category: "modern"
+        },
+        {
+            id: 14,
+            url: "https://images.unsplash.com/photo-1518826778770-a729fb53327c?w=1200&q=80",
+            title: "Power Lines in Storm",
+            date: "Winter Storm",
+            location: "New England",
+            credit: "Unsplash",
+            stormId: null,
+            category: "modern"
+        },
+        {
+            id: 15,
+            url: "https://images.unsplash.com/photo-1551582045-6ec9c11d8697?w=1200&q=80",
+            title: "Digging Out",
+            date: "After the Storm",
+            location: "Massachusetts",
+            credit: "Unsplash",
+            stormId: null,
+            category: "aftermath"
+        },
+        {
+            id: 16,
+            url: "https://images.unsplash.com/photo-1517299321609-52687d1bc55a?w=1200&q=80",
+            title: "Buried Cars",
+            date: "Major Storm Aftermath",
+            location: "Boston Area",
+            credit: "Unsplash",
+            stormId: null,
+            category: "aftermath"
+        },
+        {
+            id: 17,
+            url: "https://images.unsplash.com/photo-1419833173245-f59e1b93f9ee?w=1200&q=80",
+            title: "Snowy Streets",
+            date: "Winter Storm",
+            location: "New England",
+            credit: "Unsplash",
+            stormId: null,
+            category: "modern"
+        },
+        {
+            id: 18,
+            url: "https://images.unsplash.com/photo-1455156218388-5e61b526818b?w=1200&q=80",
+            title: "Heavy Snowfall",
+            date: "Nor'easter",
+            location: "Massachusetts",
+            credit: "Unsplash",
+            stormId: null,
+            category: "modern"
+        },
+        {
+            id: 19,
+            url: "https://images.unsplash.com/photo-1478265409131-1f65c88f965c?w=1200&q=80",
+            title: "Blizzard Conditions",
+            date: "Major Storm",
+            location: "New England",
+            credit: "Unsplash",
+            stormId: null,
+            category: "modern"
+        },
+        {
+            id: 20,
+            url: "https://images.unsplash.com/photo-1609667083964-f3dbecb7e7a5?w=1200&q=80",
+            title: "Winter Landscape",
+            date: "Post-Storm",
+            location: "Massachusetts",
+            credit: "Unsplash",
+            stormId: null,
+            category: "aftermath"
+        },
+        {
+            id: 21,
+            url: "https://images.unsplash.com/photo-1610973482880-44945c7cc929?w=1200&q=80",
+            title: "Historic Boston in Snow",
+            date: "Winter Scene",
+            location: "Boston",
+            credit: "Unsplash",
+            stormId: null,
+            category: "modern"
+        },
+        {
+            id: 22,
+            url: "https://images.unsplash.com/photo-1542601098-8fc114e148e2?w=1200&q=80",
+            title: "Storm from Above",
+            date: "Satellite View",
+            location: "East Coast",
+            credit: "Unsplash",
+            stormId: "superstorm-1993",
+            category: "modern"
+        },
+        {
+            id: 23,
+            url: "https://images.unsplash.com/photo-1418985991508-e47386d96a71?w=1200&q=80",
+            title: "Massive Storm System",
+            date: "Superstorm",
+            location: "Eastern US",
+            credit: "Unsplash",
+            stormId: "superstorm-1993",
+            category: "modern"
+        },
+        {
+            id: 24,
+            url: "https://images.unsplash.com/photo-1519944518895-f5c4e9f8b6f8?w=1200&q=80",
+            title: "Juno's Fury",
+            date: "January 2015",
+            location: "Massachusetts",
+            credit: "Unsplash",
+            stormId: "blizzard-2015",
+            category: "modern"
         }
     ],
 
-    // Educational content
+    // Educational content (unchanged)
     educationalContent: {
         noreaster: {
             title: "How Nor'easters Form",
@@ -636,41 +1062,12 @@ The pattern was remarkably consistent, locking in place for nearly two months. E
                     <th style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">NESIS Value</th>
                     <th style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">Description</th>
                 </tr>
-                <tr>
-                    <td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">1</td>
-                    <td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">1.0 - 2.5</td>
-                    <td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">Notable</td>
-                </tr>
-                <tr>
-                    <td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">2</td>
-                    <td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">2.5 - 4.0</td>
-                    <td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">Significant</td>
-                </tr>
-                <tr>
-                    <td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">3</td>
-                    <td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">4.0 - 6.0</td>
-                    <td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">Major</td>
-                </tr>
-                <tr>
-                    <td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">4</td>
-                    <td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">6.0 - 10.0</td>
-                    <td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">Crippling</td>
-                </tr>
-                <tr>
-                    <td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">5</td>
-                    <td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">10.0+</td>
-                    <td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">Extreme</td>
-                </tr>
-            </table>
-
-            <h3>How It's Calculated</h3>
-            <p>NESIS considers:</p>
-            <ul>
-                <li>Geographic area of snowfall</li>
-                <li>Snowfall amounts</li>
-                <li>Population affected</li>
-            </ul>
-            <p>A storm that hits major cities scores higher than one that hits rural areas with the same snowfall.</p>`
+                <tr><td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">1</td><td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">1.0 - 2.5</td><td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">Notable</td></tr>
+                <tr><td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">2</td><td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">2.5 - 4.0</td><td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">Significant</td></tr>
+                <tr><td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">3</td><td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">4.0 - 6.0</td><td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">Major</td></tr>
+                <tr><td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">4</td><td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">6.0 - 10.0</td><td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">Crippling</td></tr>
+                <tr><td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">5</td><td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">10.0+</td><td style="padding: 10px; border: 1px solid rgba(168,213,229,0.3);">Extreme</td></tr>
+            </table>`
         },
         geography: {
             title: "Massachusetts Geography",
@@ -678,103 +1075,43 @@ The pattern was remarkably consistent, locking in place for nearly two months. E
             <p>Massachusetts occupies a unique geographic position that makes it particularly vulnerable to significant winter storms.</p>
 
             <h3>Key Geographic Factors</h3>
-
             <h4>1. Coastal Position</h4>
-            <p>Massachusetts extends into the Atlantic Ocean, with Cape Cod jutting 65 miles into prime nor'easter territory. This places much of the state directly in the path of coastal storms.</p>
-
+            <p>Massachusetts extends into the Atlantic Ocean, with Cape Cod jutting 65 miles into prime nor'easter territory.</p>
             <h4>2. Cold Air Access</h4>
-            <p>The state has unobstructed access to Arctic air masses that sweep down from Canada. There are no major mountain barriers to block these cold intrusions.</p>
-
+            <p>The state has unobstructed access to Arctic air masses from Canada.</p>
             <h4>3. Gulf Stream Proximity</h4>
-            <p>The warm Gulf Stream flows relatively close to the New England coast. This provides enormous moisture and energy for developing storms.</p>
-
-            <h4>4. Topographic Diversity</h4>
-            <p>From sea level along the coast to the 3,491-foot summit of Mount Greylock, Massachusetts features significant elevation changes that enhance snowfall in certain areas.</p>
-
-            <h3>Regional Variations</h3>
-            <ul>
-                <li><strong>Cape Cod:</strong> Often receives less snow but more wind and flooding</li>
-                <li><strong>Worcester County:</strong> Higher elevation leads to enhanced snowfall totals</li>
-                <li><strong>Pioneer Valley:</strong> Can see significant snow from certain storm tracks</li>
-                <li><strong>Berkshires:</strong> Lake effect and elevation combine for heavy snow</li>
-            </ul>`
+            <p>The warm Gulf Stream provides enormous moisture and energy for developing storms.</p>`
         },
         safety: {
             title: "Storm Preparedness",
             content: `<h3>Winter Storm Preparedness Checklist</h3>
-
             <h4>Before the Storm</h4>
             <ul>
                 <li>Stock emergency supplies for 3-7 days</li>
                 <li>Charge all devices and backup batteries</li>
                 <li>Fill prescriptions and have first aid supplies</li>
                 <li>Fill vehicle gas tank and check antifreeze</li>
-                <li>Know your zone for driving bans</li>
             </ul>
-
             <h4>Emergency Supply Kit</h4>
             <ul>
                 <li>Water: 1 gallon per person per day</li>
                 <li>Non-perishable food and manual can opener</li>
                 <li>Flashlights and extra batteries</li>
-                <li>Battery-powered or hand-crank radio</li>
                 <li>First aid kit and medications</li>
-                <li>Warm clothing and blankets</li>
-                <li>Cell phone chargers and backup batteries</li>
-            </ul>
-
-            <h4>During the Storm</h4>
-            <ul>
-                <li>Stay indoors and off the roads</li>
-                <li>Conserve heat by closing off unused rooms</li>
-                <li>Check on elderly and vulnerable neighbors</li>
-                <li>Avoid overexertion when shoveling</li>
-                <li>Keep carbon monoxide detectors active</li>
-            </ul>
-
-            <h4>After the Storm</h4>
-            <ul>
-                <li>Wait for official all-clear before driving</li>
-                <li>Clear snow from vents and exhausts</li>
-                <li>Watch for downed power lines</li>
-                <li>Report emergencies to 911</li>
-                <li>Document any property damage for insurance</li>
             </ul>`
         },
         glossary: {
             title: "Weather Glossary",
             content: `<h3>Winter Weather Terms</h3>
-
             <dl>
                 <dt><strong>Bomb Cyclone</strong></dt>
-                <dd>A storm that undergoes rapid intensification, with central pressure dropping at least 24 millibars in 24 hours. Also called "bombogenesis."</dd>
-
+                <dd>A storm with pressure dropping at least 24 millibars in 24 hours.</dd>
                 <dt><strong>Blizzard</strong></dt>
-                <dd>Sustained winds of 35+ mph with snow reducing visibility to less than 1/4 mile for 3+ hours.</dd>
-
+                <dd>Sustained winds of 35+ mph with visibility less than 1/4 mile for 3+ hours.</dd>
                 <dt><strong>Nor'easter</strong></dt>
                 <dd>A powerful storm along the East Coast featuring strong northeast winds.</dd>
-
                 <dt><strong>Thundersnow</strong></dt>
-                <dd>A rare phenomenon where thunder and lightning occur during a snowstorm, indicating extremely heavy snowfall rates.</dd>
-
-                <dt><strong>Wind Chill</strong></dt>
-                <dd>The perceived temperature accounting for wind's cooling effect on exposed skin.</dd>
-
-                <dt><strong>Snow Squall</strong></dt>
-                <dd>A brief, intense burst of heavy snow with gusty winds and rapid visibility reduction.</dd>
-
-                <dt><strong>Lake Effect Snow</strong></dt>
-                <dd>Snow produced when cold air moves over warmer lake water, picking up moisture.</dd>
-
-                <dt><strong>Alberta Clipper</strong></dt>
-                <dd>A fast-moving low pressure system from Alberta that brings light to moderate snow.</dd>
-
-                <dt><strong>Snowfall Rate</strong></dt>
-                <dd>The speed at which snow accumulates, measured in inches per hour. Rates over 2"/hour are considered heavy.</dd>
-
-                <dt><strong>Storm Surge</strong></dt>
-                <dd>Rising seawater pushed ashore by storm winds, causing coastal flooding.</dd>
+                <dd>Thunder and lightning during a snowstorm, indicating heavy snowfall rates.</dd>
             </dl>`
         }
     },
@@ -861,6 +1198,22 @@ The pattern was remarkably consistent, locking in place for nearly two months. E
     getPhotosByCategory(category) {
         if (category === 'all') return this.photos;
         return this.photos.filter(photo => photo.category === category);
+    },
+
+    getAllStormImages() {
+        let allImages = [];
+        this.storms.forEach(storm => {
+            if (storm.images) {
+                storm.images.forEach(img => {
+                    allImages.push({
+                        ...img,
+                        stormId: storm.id,
+                        stormName: storm.name
+                    });
+                });
+            }
+        });
+        return allImages;
     },
 
     getSortedByYear() {

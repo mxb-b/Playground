@@ -118,10 +118,7 @@ class Slideshow {
         this.thumbnailsContainer.innerHTML = this.filteredPhotos.map((photo, index) => `
             <div class="slideshow-thumbnail ${index === 0 ? 'active' : ''}"
                  data-index="${index}"
-                 style="background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);">
-                <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:var(--silver);text-align:center;padding:4px;">
-                    ${photo.date.substring(0, 4)}
-                </div>
+                 style="background-image: url('${photo.url}'); background-size: cover; background-position: center;">
             </div>
         `).join('');
 
@@ -146,14 +143,8 @@ class Slideshow {
 
         // Update image with Ken Burns effect
         if (this.slideshowImage) {
-            // Create gradient background as placeholder
-            const gradients = [
-                'linear-gradient(135deg, #1a2744 0%, #2a3a5c 50%, #1a2744 100%)',
-                'linear-gradient(45deg, #0a1628 0%, #3d4f6f 50%, #0a1628 100%)',
-                'linear-gradient(180deg, #2a3a5c 0%, #0a1628 100%)'
-            ];
-
-            this.slideshowImage.style.background = gradients[index % gradients.length];
+            // Set the actual image URL
+            this.slideshowImage.style.backgroundImage = `url('${photo.url}')`;
             this.slideshowImage.style.transform = 'scale(1)';
 
             // Apply Ken Burns effect
