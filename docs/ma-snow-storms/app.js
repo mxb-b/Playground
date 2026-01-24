@@ -113,7 +113,9 @@ class App {
         if (!storm) return;
 
         this.featuredStorm.innerHTML = `
-            <div class="featured-image" style="background-image: url('${storm.heroImage}'); background-size: cover; background-position: center;"></div>
+            <div class="featured-image">
+                <img src="${storm.heroImage}" alt="${storm.name}" loading="lazy">
+            </div>
             <div class="featured-content">
                 <h3>${storm.name}</h3>
                 <p class="featured-date">${storm.dateRange}</p>
@@ -148,7 +150,9 @@ class App {
 
         this.stormsGrid.innerHTML = stormsToRender.map(storm => `
             <div class="storm-card" data-storm-id="${storm.id}">
-                <div class="storm-card-image" style="background-image: url('${storm.cardImage}'); background-size: cover; background-position: center;">
+                <div class="storm-card-image">
+                    <img src="${storm.cardImage}" alt="${storm.name}" loading="lazy">
+                    <span class="year-overlay">${storm.year}</span>
                     ${storm.nesisCategory ? `<span class="storm-category">${storm.nesisCategory}</span>` : ''}
                 </div>
                 <div class="storm-card-content">
