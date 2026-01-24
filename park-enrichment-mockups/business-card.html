@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Park Enrichment - Business Card Mockup</title>
+  <link rel="stylesheet" href="styles/common.css">
+  <style>
+    .mockup-container {
+      background: linear-gradient(145deg, #2d3a36 0%, #1a2421 100%);
+      min-height: 100vh;
+      perspective: 1000px;
+    }
+
+    .mockup-title {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .cards-wrapper {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .card-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    /* Business Card - Standard US size 3.5" x 2" (350px x 200px at 100dpi) */
+    .business-card {
+      width: 350px;
+      height: 200px;
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.4s ease;
+    }
+
+    .business-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Front of card */
+    .card-front {
+      background: linear-gradient(135deg, var(--pe-white) 0%, var(--pe-off-white) 100%);
+      box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      padding: 25px 30px;
+    }
+
+    .card-front .logo-area {
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .card-front .logo-area img {
+      height: 55px;
+      width: auto;
+    }
+
+    .card-front .contact-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .card-front .person-info h3 {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--pe-dark-teal);
+      margin-bottom: 2px;
+    }
+
+    .card-front .person-info p {
+      font-size: 10px;
+      color: var(--pe-medium-green);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .card-front .contact-details {
+      text-align: right;
+      font-size: 9px;
+      color: var(--pe-dark-gray);
+      line-height: 1.8;
+    }
+
+    /* Back of card */
+    .card-back {
+      background: linear-gradient(135deg, var(--pe-dark-teal) 0%, var(--pe-accent-teal) 100%);
+      box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-back::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -30%;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+    }
+
+    .card-back::after {
+      content: '';
+      position: absolute;
+      bottom: -40%;
+      left: -20%;
+      width: 150px;
+      height: 150px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 50%;
+    }
+
+    .card-back .icon-logo {
+      width: auto;
+      height: 70px;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-back .tagline {
+      font-family: var(--font-primary);
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.8);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    /* Decorative elements */
+    .accent-line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--pe-medium-green), var(--pe-light-green));
+    }
+  </style>
+</head>
+<body>
+  <div class="mockup-container">
+    <p class="mockup-title">Business Card Mockup</p>
+
+    <div class="cards-wrapper">
+      <!-- Front of card -->
+      <div>
+        <p class="card-label">Front</p>
+        <div class="business-card card-front">
+          <div class="logo-area">
+            <img src="assets/2026.Enrichment.logo_multigreen.png" alt="Park Enrichment Logo">
+          </div>
+          <div class="contact-info">
+            <div class="person-info">
+              <h3>Sarah Mitchell</h3>
+              <p>Program Director</p>
+            </div>
+            <div class="contact-details">
+              <div>sarah@parkenrichment.org</div>
+              <div>(555) 123-4567</div>
+              <div>www.parkenrichment.org</div>
+            </div>
+          </div>
+          <div class="accent-line"></div>
+        </div>
+      </div>
+
+      <!-- Back of card -->
+      <div>
+        <p class="card-label">Back</p>
+        <div class="business-card card-back">
+          <img class="icon-logo" src="assets/2026.Enrichment.logo_multigreen_SQUARE.png" alt="Park Enrichment">
+          <p class="tagline">The Park School Enrichment</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Projects Menu -->
+  <script src="../projects-config.js"></script>
+  <script src="../projects-menu.js"></script>
+</body>
+</html>
