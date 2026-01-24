@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Massachusetts Snow Storm Explorer</title>
+    <meta name="description" content="Explore the rich history of major snowstorms that have shaped Massachusetts and New England through interactive maps, photo galleries, and detailed storm profiles.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Leaflet for Maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Chart.js for Data Visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Snowfall Animation Canvas -->
+    <canvas id="snowfall-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-icon">&#10052;</span>
+                <span class="logo-text">MA Snow Storm Explorer</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#storms" class="nav-link">Explore Storms</a></li>
+                <li><a href="#gallery" class="nav-link">Photo Gallery</a></li>
+                <li><a href="#timeline" class="nav-link">Timeline</a></li>
+                <li><a href="#maps" class="nav-link">Maps</a></li>
+                <li><a href="#compare" class="nav-link">Compare</a></li>
+                <li><a href="#learn" class="nav-link">Learn</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Massachusetts Snow Storm Explorer</h1>
+            <p class="hero-subtitle">Journey through centuries of historic winter storms that have shaped the Commonwealth</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">300+</span>
+                    <span class="stat-label">Years of History</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">9</span>
+                    <span class="stat-label">Major Storms</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">110.6"</span>
+                    <span class="stat-label">Record Snowfall (2015)</span>
+                </div>
+            </div>
+            <a href="#storms" class="hero-cta">Explore Historic Storms</a>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Featured Storm Spotlight -->
+    <section class="featured-section">
+        <div class="container">
+            <h2 class="section-title">Featured Storm</h2>
+            <div class="featured-storm" id="featured-storm">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Explore Storms Section -->
+    <section id="storms" class="storms-section">
+        <div class="container">
+            <h2 class="section-title">Historic Storms</h2>
+            <p class="section-subtitle">From colonial blizzards to modern nor'easters, explore the storms that defined Massachusetts winters</p>
+
+            <div class="storms-filters">
+                <button class="filter-btn active" data-filter="all">All Storms</button>
+                <button class="filter-btn" data-filter="cat5">Category 5</button>
+                <button class="filter-btn" data-filter="cat4">Category 4</button>
+                <button class="filter-btn" data-filter="cat3">Category 3</button>
+                <button class="filter-btn" data-filter="historic">Historic (Pre-1900)</button>
+            </div>
+
+            <div class="storms-grid" id="storms-grid">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Photo Gallery</h2>
+            <p class="section-subtitle">Witness the power and beauty of Massachusetts snowstorms through historic and modern photography</p>
+
+            <div class="gallery-filters">
+                <button class="gallery-filter-btn active" data-filter="all">All Photos</button>
+                <button class="gallery-filter-btn" data-filter="historic">Historic</button>
+                <button class="gallery-filter-btn" data-filter="modern">Modern</button>
+                <button class="gallery-filter-btn" data-filter="aftermath">Aftermath</button>
+            </div>
+        </div>
+
+        <div class="slideshow-container" id="slideshow">
+            <div class="slideshow-main">
+                <button class="slideshow-nav prev" aria-label="Previous photo">&#10094;</button>
+                <div class="slideshow-image-container">
+                    <div class="slideshow-image" id="slideshow-image"></div>
+                    <div class="slideshow-overlay">
+                        <div class="photo-info">
+                            <h3 class="photo-title" id="photo-title"></h3>
+                            <p class="photo-date" id="photo-date"></p>
+                            <p class="photo-location" id="photo-location"></p>
+                            <p class="photo-credit" id="photo-credit"></p>
+                        </div>
+                    </div>
+                </div>
+                <button class="slideshow-nav next" aria-label="Next photo">&#10095;</button>
+            </div>
+            <div class="slideshow-controls">
+                <button class="control-btn" id="play-pause" aria-label="Play/Pause slideshow">
+                    <span class="play-icon">&#9658;</span>
+                    <span class="pause-icon" style="display:none;">&#10074;&#10074;</span>
+                </button>
+                <div class="slideshow-progress">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <span class="slide-counter" id="slide-counter">1 / 12</span>
+            </div>
+            <div class="slideshow-thumbnails" id="slideshow-thumbnails">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="timeline-section">
+        <div class="container">
+            <h2 class="section-title">Storm Timeline</h2>
+            <p class="section-subtitle">Navigate through 300 years of Massachusetts winter weather history</p>
+
+            <div class="timeline-controls">
+                <button class="timeline-zoom" data-zoom="out">-</button>
+                <span class="timeline-range" id="timeline-range">1717 - 2015</span>
+                <button class="timeline-zoom" data-zoom="in">+</button>
+            </div>
+        </div>
+
+        <div class="timeline-wrapper">
+            <div class="timeline-container" id="timeline-container">
+                <div class="timeline-line"></div>
+                <div class="timeline-events" id="timeline-events">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="timeline-detail" id="timeline-detail">
+                <p class="timeline-hint">Click on a storm marker to see details</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Maps Section -->
+    <section id="maps" class="maps-section">
+        <div class="container">
+            <h2 class="section-title">Interactive Snowfall Maps</h2>
+            <p class="section-subtitle">Explore geographic snowfall patterns across Massachusetts</p>
+
+            <div class="map-controls">
+                <div class="map-storm-select">
+                    <label for="map-storm">Select Storm:</label>
+                    <select id="map-storm" class="map-select">
+                        <option value="1978">Blizzard of 1978</option>
+                        <option value="2013">Blizzard of 2013 (Nemo)</option>
+                        <option value="2015">Blizzard of 2015 (Juno)</option>
+                        <option value="2003">Presidents Day 2003</option>
+                        <option value="1993">Superstorm 1993</option>
+                    </select>
+                </div>
+                <div class="map-layer-toggle">
+                    <label>
+                        <input type="checkbox" id="show-stations" checked>
+                        Weather Stations
+                    </label>
+                    <label>
+                        <input type="checkbox" id="show-heatmap" checked>
+                        Snowfall Heatmap
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="map-container">
+            <div id="snowfall-map" class="snowfall-map"></div>
+            <div class="map-legend">
+                <h4>Snowfall (inches)</h4>
+                <div class="legend-scale">
+                    <div class="legend-item" style="background: #e3f2fd;">0-6"</div>
+                    <div class="legend-item" style="background: #90caf9;">6-12"</div>
+                    <div class="legend-item" style="background: #42a5f5;">12-18"</div>
+                    <div class="legend-item" style="background: #1e88e5;">18-24"</div>
+                    <div class="legend-item" style="background: #1565c0;">24-30"</div>
+                    <div class="legend-item" style="background: #0d47a1;">30+"</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Storm Comparison Section -->
+    <section id="compare" class="compare-section">
+        <div class="container">
+            <h2 class="section-title">Storm Comparison Tool</h2>
+            <p class="section-subtitle">Compare historic storms across multiple metrics</p>
+
+            <div class="compare-selectors">
+                <div class="storm-selector">
+                    <label for="storm1">Storm 1:</label>
+                    <select id="storm1" class="compare-select">
+                        <!-- Dynamically populated -->
+                    </select>
+                </div>
+                <div class="vs-badge">VS</div>
+                <div class="storm-selector">
+                    <label for="storm2">Storm 2:</label>
+                    <select id="storm2" class="compare-select">
+                        <!-- Dynamically populated -->
+                    </select>
+                </div>
+            </div>
+
+            <div class="comparison-results" id="comparison-results">
+                <div class="comparison-chart-container">
+                    <canvas id="comparison-chart"></canvas>
+                </div>
+                <div class="comparison-details" id="comparison-details">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Educational Resources Section -->
+    <section id="learn" class="learn-section">
+        <div class="container">
+            <h2 class="section-title">Learn About Winter Weather</h2>
+            <p class="section-subtitle">Understand the science behind Massachusetts' legendary snowstorms</p>
+
+            <div class="learn-grid">
+                <div class="learn-card" data-topic="noreaster">
+                    <div class="learn-icon">&#127786;</div>
+                    <h3>How Nor'easters Form</h3>
+                    <p>Learn about the unique conditions that create these powerful coastal storms</p>
+                    <button class="learn-more-btn">Learn More</button>
+                </div>
+
+                <div class="learn-card" data-topic="blizzard">
+                    <div class="learn-icon">&#10052;</div>
+                    <h3>What Makes a Blizzard</h3>
+                    <p>Understand the official criteria and conditions that define a true blizzard</p>
+                    <button class="learn-more-btn">Learn More</button>
+                </div>
+
+                <div class="learn-card" data-topic="nesis">
+                    <div class="learn-icon">&#128200;</div>
+                    <h3>Understanding NESIS</h3>
+                    <p>Explore the Northeast Snowfall Impact Scale and how storms are rated</p>
+                    <button class="learn-more-btn">Learn More</button>
+                </div>
+
+                <div class="learn-card" data-topic="geography">
+                    <div class="learn-icon">&#127759;</div>
+                    <h3>Massachusetts Geography</h3>
+                    <p>Why the Commonwealth is uniquely positioned for major snowstorms</p>
+                    <button class="learn-more-btn">Learn More</button>
+                </div>
+
+                <div class="learn-card" data-topic="safety">
+                    <div class="learn-icon">&#9888;</div>
+                    <h3>Storm Preparedness</h3>
+                    <p>Essential tips and checklists for staying safe during winter storms</p>
+                    <button class="learn-more-btn">Learn More</button>
+                </div>
+
+                <div class="learn-card" data-topic="glossary">
+                    <div class="learn-icon">&#128214;</div>
+                    <h3>Weather Glossary</h3>
+                    <p>Definitions of meteorological terms from bomb cyclone to thundersnow</p>
+                    <button class="learn-more-btn">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Storm Detail Modal -->
+    <div class="modal" id="storm-modal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-body" id="modal-body">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Educational Content Modal -->
+    <div class="modal" id="learn-modal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-body" id="learn-modal-body">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">&#10052;</span>
+                    <span>MA Snow Storm Explorer</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#storms">Storms</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#timeline">Timeline</a>
+                    <a href="#maps">Maps</a>
+                    <a href="#learn">Learn</a>
+                </div>
+                <div class="footer-credits">
+                    <p>Data sources: NOAA, National Weather Service, Library of Congress</p>
+                    <p>&copy; 2026 Massachusetts Snow Storm Explorer. Educational use.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="storms-data.js"></script>
+    <script src="slideshow.js"></script>
+    <script src="timeline.js"></script>
+    <script src="maps.js"></script>
+    <script src="comparison.js"></script>
+    <script src="snowfall.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
