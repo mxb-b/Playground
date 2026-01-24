@@ -34,6 +34,13 @@ const PROJECTS_CONFIG = {
       description: 'Business cards, t-shirts, and social media mockups',
       url: 'park-enrichment-mockups/landing-page.html',
       icon: '🎨'
+    },
+    {
+      id: 'snow-storms',
+      name: 'MA Snow Storm Explorer',
+      description: 'Interactive history of Massachusetts historic snowstorms',
+      url: 'ma-snow-storms/index.html',
+      icon: '❄️'
     }
   ]
 };
