@@ -1,0 +1,4 @@
+node_modules/
+output/
+audio/score.wav
+__pycache__/
