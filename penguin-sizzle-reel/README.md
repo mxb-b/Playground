@@ -12,8 +12,9 @@ A 52-second motion showreel about penguins, built in code. Every frame is a func
 npm install                                  # playwright-core 1.56.1 and the @fontsource fonts
 python3 -m pip install numpy scipy pillow    # score and contact sheet
 python3 audio/make_audio.py                  # writes audio/score.wav
+python3 audio/master.py audio/score.wav audio/score-master.wav   # -14 LUFS, true peak at or below -2 dBTP
 node render.mjs --out=output/black-tie-on-ice-video.mp4   # picture, about 15 minutes on 4 cores
-python3 mux.py output/black-tie-on-ice-video.mp4 audio/score.wav output/black-tie-on-ice.mp4
+python3 mux.py output/black-tie-on-ice-video.mp4 audio/score-master.wav output/black-tie-on-ice.mp4
 python3 contact_sheet.py output/black-tie-on-ice.mp4 output/storyboard-contact-sheet.png
 ```
 
@@ -32,7 +33,8 @@ To preview a single scene in a browser, serve the folder (`python3 -m http.serve
 | `src/shots1.js` to `src/shots4.js` | Nine shots, from title to finale |
 | `render.mjs` | Headless renderer: sub-samples per frame, `tmix` motion blur, H.264 |
 | `audio/make_audio.py` | Score and sound design, timed to the same 120 BPM grid |
-| `mux.py` | Two-pass loudness normalisation and final encode |
+| `audio/master.py` | Mastering: -14 LUFS integrated, true peak at or below -2 dBTP, 16 kHz low-pass |
+| `mux.py` | AAC encode and mux with the picture |
 | `contact_sheet.py` | Storyboard contact sheet from the rendered file |
 | `fonts/` | Anton, Instrument Serif, Inter and JetBrains Mono (SIL OFL 1.1) |
 

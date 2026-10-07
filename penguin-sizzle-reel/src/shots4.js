@@ -180,8 +180,8 @@ function drawFinale(ctx, t, s) {
   ];
   credits.forEach(([k, v], i) => {
     const a = clamp((u - 6.0 - i * 0.25) * 2.5);
-    text(ctx, k, lx, 730 + i * 74, { font: "700 19px 'JetBrains Mono'", color: C.gold, tracking: 3, alpha: a });
-    text(ctx, v, lx, 764 + i * 74, { font: "600 25px 'Inter'", color: C.ice, alpha: a });
+    text(ctx, k, lx, 700 + i * 74, { font: "700 19px 'JetBrains Mono'", color: C.gold, tracking: 3, alpha: a });
+    text(ctx, v, lx, 734 + i * 74, { font: "600 25px 'Inter'", color: C.ice, alpha: a });
   });
 
   // Fade to ink over the final 0.6 s.

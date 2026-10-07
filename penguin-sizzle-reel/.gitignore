@@ -1,4 +1,4 @@
 node_modules/
 output/
-audio/score.wav
+audio/*.wav
 __pycache__/
